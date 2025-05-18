@@ -1,39 +1,81 @@
+/* Modernes, klares Design mit Blau als Akzentfarbe */
+
 body {
-  font-family: Arial, sans-serif;
-  padding: 2em;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e8f0fe;
+  color: #222;
+  padding: 2.5em;
+  margin: 0;
 }
 
 h1 {
   text-align: center;
+  color: #0a3d62;
+  font-weight: 700;
+  margin-bottom: 1.5em;
+  letter-spacing: 1.2px;
 }
 
 label {
-  font-weight: bold;
+  font-weight: 600;
+  color: #0a3d62;
   display: block;
-  margin-top: 1em;
+  margin-top: 1.4em;
+  font-size: 1.05rem;
 }
 
 select, button {
-  padding: 0.5em;
-  margin-top: 0.3em;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  padding: 0.6em 1em;
+  margin-top: 0.35em;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #0a3d62;
+  background-color: white;
+  color: #0a3d62;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: 600;
+  outline-offset: 2px;
 }
 
-#zeigeBtn {
-  cursor: pointer;
+select:hover, button:hover, select:focus, button:focus {
+  background-color: #0a3d62;
+  color: white;
+  border-color: #08306b;
+}
+
+button {
+  margin-top: 1.2em;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(10, 61, 98, 0.2);
 }
 
 #loesung {
-  margin-top: 2em;
+  margin-top: 2.5em;
+  max-width: 600px;
   background-color: white;
-  padding: 1em;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  padding: 1.8em 2em;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(10, 61, 98, 0.15);
+  color: #333;
+  line-height: 1.5;
 }
 
 #loesung h3 {
   margin-top: 0;
-  color: #0077cc;
+  color: #0a3d62;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.8em;
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+ul li {
+  margin-bottom: 0.6em;
 }
