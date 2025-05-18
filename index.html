@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>Lösungsvorschläge für Anbieter & Themen</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mobilfunk-Lösungsvorschläge</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Lösungsvorschläge für Anbieter & Themen</h1>
+  <main>
+    <h1>Mobilfunk: Lösungsvorschläge pro Anbieter & Thema</h1>
 
-  <label for="anbieter">Anbieter wählen:</label>
-  <select id="anbieter">
-    <option value="">-- Bitte wählen --</option>
-    <option value="SIMON">SIMON</option>
-    <option value="TELEKOM">TELEKOM</option>
-    <option value="VODAFONE">VODAFONE</option>
-  </select>
+    <section class="controls">
+      <label for="anbieter"><strong>Anbieter:</strong></label>
+      <select id="anbieter" name="anbieter">
+        <option value="">-- Bitte wählen --</option>
+        <option value="SIMON">SIMON</option>
+        <option value="TELEKOM">TELEKOM</option>
+        <option value="VODAFONE">VODAFONE</option>
+        <option value="O2">O2</option>
+      </select>
 
-  <label for="thema">Thema wählen:</label>
-  <select id="thema">
-    <option value="">-- Bitte wählen --</option>
-    <option value="Roaming">Roaming</option>
-    <option value="Netzprobleme">Netzprobleme</option>
-    <option value="Rechnung">Rechnung</option>
-  </select>
+      <label for="thema"><strong>Thema:</strong></label>
+      <select id="thema" name="thema">
+        <option value="">-- Bitte wählen --</option>
+        <option value="Roaming">Roaming</option>
+        <option value="Netzprobleme">Netzprobleme</option>
+        <option value="Rechnung">Rechnung</option>
+        <option value="Vertragswechsel">Vertragswechsel</option>
+        <option value="Kündigung">Kündigung</option>
+      </select>
 
-  <button id="checkBtn">Lösung anzeigen</button>
+      <button id="checkBtn" type="button">Lösung anzeigen</button>
+    </section>
 
-  <div id="loesung"></div>
+    <section id="loesung" class="loesung-box" aria-live="polite" role="region">
+      <!-- Lösungsvorschläge erscheinen hier -->
+    </section>
+  </main>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
