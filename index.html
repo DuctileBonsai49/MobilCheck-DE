@@ -3,32 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MobilCheck – Mobilfunkhilfe</title>
+  <title>Mobilfunkhilfe</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>MobilCheck</h1>
-    <p>Dein Ratgeber bei Mobilfunkproblemen</p>
-  </header>
+  <h1>Mobilfunkhilfe für alle Anbieter</h1>
 
-  <main>
-    <div class="form">
-      <label for="anbieter">Anbieter:</label>
-      <select id="anbieter"></select>
+  <label for="anbieter">Anbieter wählen:</label>
+  <select id="anbieter">
+    <option value="SIMon mobile">SIMon mobile</option>
+    <option value="Telekom">Telekom</option>
+    <option value="Vodafone">Vodafone</option>
+    <option value="o2">o2</option>
+    <option value="1&1">1&1</option>
+    <option value="Congstar">Congstar</option>
+  </select>
 
-      <label for="problem">Problem:</label>
-      <select id="problem"></select>
+  <label for="problem">Problem wählen:</label>
+  <select id="problem">
+    <option value="Kein Empfang">Kein Empfang</option>
+    <option value="Roaming funktioniert nicht">Roaming funktioniert nicht</option>
+    <option value="SIM wird nicht erkannt">SIM wird nicht erkannt</option>
+    <option value="Mobile Daten zu langsam">Mobile Daten zu langsam</option>
+  </select>
 
-      <button id="zeigeBtn">Lösung anzeigen</button>
-    </div>
+  <button id="zeigeBtn">Lösung anzeigen</button>
 
-    <div id="loesung" class="output"></div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 MobilCheck</p>
-  </footer>
+  <div id="loesung"></div>
 
   <script src="script.js"></script>
 </body>
