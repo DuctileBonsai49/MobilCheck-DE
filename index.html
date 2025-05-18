@@ -2,86 +2,35 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>MobilCheck – Hilfe bei Mobilfunkproblemen</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobilfunkhilfe</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>MobilCheck</h1>
-    <p>Dein digitaler Helfer bei Mobilfunkproblemen</p>
-  </header>
+  <h1>Mobilfunkhilfe für alle Anbieter</h1>
 
-  <main>
-    <div class="form">
-      <label for="anbieter">Anbieter:</label>
-      <select id="anbieter">
-        <option value="SIMon mobile">SIMon mobile</option>
-        <option value="Telekom">Telekom</option>
-        <option value="Vodafone">Vodafone</option>
-        <option value="o2">o2</option>
-        <option value="1&1">1&1</option>
-        <option value="Congstar">Congstar</option>
-      </select>
+  <label for="anbieter">Anbieter wählen:</label>
+  <select id="anbieter">
+    <option value="SIMon mobile">SIMon mobile</option>
+    <option value="Telekom">Telekom</option>
+    <option value="Vodafone">Vodafone</option>
+    <option value="o2">o2</option>
+    <option value="1&1">1&1</option>
+    <option value="Congstar">Congstar</option>
+  </select>
 
-      <label for="problem">Problem:</label>
-      <select id="problem">
-        <option value="Kein Empfang">Kein Empfang</option>
-        <option value="Roaming funktioniert nicht">Roaming funktioniert nicht</option>
-        <option value="SIM wird nicht erkannt">SIM wird nicht erkannt</option>
-        <option value="Mobile Daten zu langsam">Mobile Daten zu langsam</option>
-      </select>
+  <label for="problem">Problem wählen:</label>
+  <select id="problem">
+    <option value="Kein Empfang">Kein Empfang</option>
+    <option value="Roaming funktioniert nicht">Roaming funktioniert nicht</option>
+    <option value="SIM wird nicht erkannt">SIM wird nicht erkannt</option>
+    <option value="Mobile Daten zu langsam">Mobile Daten zu langsam</option>
+  </select>
 
-      <button id="zeigeBtn">Lösung anzeigen</button>
-    </div>
+  <button id="zeigeBtn">Lösung anzeigen</button>
 
-    <div id="loesung" class="output"></div>
-  </main>
+  <div id="loesung"></div>
 
-  <footer>
-    <p>&copy; 2025 MobilCheck</p>
-  </footer>
-
-  <script>
-    const loesungen = {
-      "SIMon mobile|Kein Empfang": `
-        <ul>
-          <li><strong>Datenroaming aktivieren:</strong> Einstellungen > Mobile Daten > Roaming aktivieren</li>
-          <li><strong>Netz manuell wählen:</strong> KPN, Vodafone NL oder T-Mobile NL in den Niederlanden auswählen</li>
-          <li><strong>Gerät neu starten</strong> und <strong>Flugmodus ein/aus</strong></li>
-          <li><strong>SIM-Karte neu einsetzen</strong></li>
-          <li><strong>Kundendienst kontaktieren</strong>, wenn weiterhin kein Netz</li>
-        </ul>
-      `,
-      "Telekom|Roaming funktioniert nicht": `
-        <ul>
-          <li><strong>Roaming aktivieren</strong> in den Einstellungen</li>
-          <li><strong>Netz manuell auswählen</strong>, z. B. Orange oder Vodafone</li>
-          <li><strong>APN prüfen:</strong> internet.telekom</li>
-          <li><strong>Kundencenter prüfen</strong>: Roaming freigeschaltet?</li>
-        </ul>
-      `,
-      "Vodafone|Mobile Daten zu langsam": `
-        <ul>
-          <li><strong>APN prüfen:</strong> web.vodafone.de</li>
-          <li><strong>4G/LTE erzwingen:</strong> Netzmodus ändern</li>
-          <li><strong>Tarif prüfen:</strong> Highspeed-Volumen verbraucht?</li>
-        </ul>
-      `
-    };
-
-    document.getElementById("zeigeBtn").addEventListener("click", () => {
-      const anbieter = document.getElementById("anbieter").value;
-      const problem = document.getElementById("problem").value;
-      const key = `${anbieter}|${problem}`;
-      const container = document.getElementById("loesung");
-
-      if (loesungen[key]) {
-        container.innerHTML = `<h3>Lösung für ${anbieter} – ${problem}</h3>${loesungen[key]}`;
-      } else {
-        container.innerHTML = `<p>Für diese Kombination liegt noch keine Lösung vor.</p>`;
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
