@@ -22,7 +22,7 @@ const loesungen = {
       <li>Gerät neustarten</li>
     </ul>
   `
-  // Weitere Kombinationen kannst du hier hinzufügen
+  // Weitere Kombinationen kannst du hier ergänzen
 };
 
 document.getElementById("zeigeBtn").addEventListener("click", () => {
@@ -35,5 +35,13 @@ document.getElementById("zeigeBtn").addEventListener("click", () => {
     container.innerHTML = `<h3>Lösung für ${anbieter} – ${problem}</h3>${loesungen[key]}`;
   } else {
     container.innerHTML = `<p>Für diese Kombination liegt kein Lösungsvorschlag vor.</p>`;
+  }
+});
+
+document.getElementById("supportBtn").addEventListener("click", function () {
+  if (window.JFChatAgent) {
+    window.JFChatAgent.open();
+  } else {
+    alert("Support-Chat wird geladen. Bitte kurz warten und erneut versuchen.");
   }
 });
