@@ -1,7 +1,7 @@
 body {
-  font-family: sans-serif;
-  background: #eee;
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  padding: 2em;
+  background-color: #f4f4f4;
 }
 
 h1 {
@@ -9,25 +9,40 @@ h1 {
 }
 
 label {
-  display: block;
-  margin-top: 15px;
   font-weight: bold;
+  display: block;
+  margin-top: 1em;
 }
 
 select, button {
+  padding: 0.5em;
+  margin-top: 0.3em;
   width: 100%;
   max-width: 400px;
-  padding: 8px;
-  margin-top: 5px;
 }
 
-button {
-  margin-top: 20px;
+#zeigeBtn {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+#zeigeBtn:hover {
+  background-color: #005fa3;
 }
 
 #loesung {
-  margin-top: 30px;
-  background: #fff;
-  padding: 15px;
-  border: 1px solid #ccc;
+  margin-top: 2em;
+  background-color: white;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#loesung h3 {
+  margin-top: 0;
+  color: #0077cc;
 }
