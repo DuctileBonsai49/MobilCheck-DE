@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MobilCheck – Mobilfunkhilfe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>MobilCheck</h1>
+    <p>Dein Ratgeber bei Mobilfunkproblemen</p>
+  </header>
+
+  <main>
+    <div class="form">
+      <label for="anbieter">Anbieter:</label>
+      <select id="anbieter"></select>
+
+      <label for="problem">Problem:</label>
+      <select id="problem"></select>
+
+      <button onclick="zeigeLoesung()">Lösung anzeigen</button>
+    </div>
+
+    <div id="loesung" class="output"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MobilCheck</p>
+  </footer>
+
+  <script src="anbieter.js"></script>
+  <script src="probleme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
