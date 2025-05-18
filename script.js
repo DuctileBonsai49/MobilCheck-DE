@@ -14,6 +14,16 @@ const loesungen = {
       "Kontrolliere deine Rechnung online im Kundenbereich.",
       "Bei Unklarheiten den Kundendienst kontaktieren.",
       "Prüfe, ob alle gebuchten Leistungen korrekt abgerechnet wurden."
+    ],
+    Vertragswechsel: [
+      "Informiere dich über Tarifoptionen auf der SIMON-Webseite.",
+      "Kundenservice bei Fragen zum Wechsel kontaktieren.",
+      "Beachte Kündigungsfristen und Vertragsbedingungen."
+    ],
+    Kündigung: [
+      "Sende deine Kündigung schriftlich per E-Mail oder Post.",
+      "Bestätige den Eingang der Kündigung.",
+      "Kläre offene Rechnungen vor Vertragsende."
     ]
   },
   TELEKOM: {
@@ -31,6 +41,16 @@ const loesungen = {
       "Rechnungen findest du im MeinMagenta Bereich.",
       "Fragen zum Tarif klärt der Kundenservice.",
       "Kontrolliere auf nicht autorisierte Zusatzdienste."
+    ],
+    Vertragswechsel: [
+      "Tarifwechsel online im Kundenkonto möglich.",
+      "Telefonische Beratung bei Vertragsänderungen.",
+      "Prüfe Sonderangebote und Rabatte vor Wechsel."
+    ],
+    Kündigung: [
+      "Kündigungsfristen beachten.",
+      "Kündigung schriftlich einreichen.",
+      "Nach Vertragsende SIM-Karte entsorgen oder zurückgeben."
     ]
   },
   VODAFONE: {
@@ -48,6 +68,43 @@ const loesungen = {
       "Rechnungen online im Kundenportal abrufen.",
       "Unklarheiten direkt mit Vodafone klären.",
       "Auf unerwartete Zusatzkosten achten."
+    ],
+    Vertragswechsel: [
+      "Online im Kundenbereich Tarifoptionen prüfen.",
+      "Vodafone Hotline für Beratung nutzen.",
+      "Informiere dich über Mindestlaufzeiten."
+    ],
+    Kündigung: [
+      "Kündigung schriftlich oder per Onlineformular einreichen.",
+      "Bestätigungs-E-Mail abwarten.",
+      "SIM-Karte nach Vertragsende deaktivieren lassen."
+    ]
+  },
+  O2: {
+    Roaming: [
+      "Roaming in den Einstellungen aktivieren.",
+      "Überprüfe, ob dein Tarif Roaming abdeckt.",
+      "Bei Problemen O2 Kundenservice kontaktieren."
+    ],
+    Netzprobleme: [
+      "Manueller Netzwechsel zu anderen Partnernetzen versuchen.",
+      "Aktuelle Netzstörungen auf o2online.de prüfen.",
+      "Flugmodus kurz an- und ausschalten."
+    ],
+    Rechnung: [
+      "Rechnungen im Mein O2 Portal einsehen.",
+      "Fragen zur Abrechnung telefonisch klären.",
+      "Unerwartete Gebühren überprüfen."
+    ],
+    Vertragswechsel: [
+      "Tarifwechsel online im Kundenkonto möglich.",
+      "Sonderangebote bei Vertragsverlängerung prüfen.",
+      "Kundenberater telefonisch kontaktieren."
+    ],
+    Kündigung: [
+      "Schriftliche Kündigung fristgerecht senden.",
+      "Kündigungsbestätigung aufbewahren.",
+      "SIM-Karte nach Vertragsende zurückgeben."
     ]
   }
 };
