@@ -11,18 +11,51 @@ const loesungen = {
   "SIMon mobile|Roaming funktioniert nicht": `
     <ul>
       <li>Roaming in SIMon-App aktivieren</li>
-      <li>Datenroaming in den Handy-Einstellungen einschalten</li>
+      <li>Datenroaming in Handy-Einstellungen einschalten</li>
       <li>Netz manuell auswählen</li>
+    </ul>
+  `,
+  "SIMon mobile|SIM wird nicht erkannt": `
+    <ul>
+      <li>SIM neu einsetzen</li>
+      <li>Gerät neu starten</li>
+      <li>SIM in anderem Gerät testen</li>
+    </ul>
+  `,
+  "SIMon mobile|Mobile Daten zu langsam": `
+    <ul>
+      <li>Netzmodus auf 4G/LTE einstellen</li>
+      <li>Datenvolumen prüfen</li>
     </ul>
   `,
   "Telekom|Kein Empfang": `
     <ul>
-      <li>Flugmodus deaktivieren und wieder aktivieren</li>
-      <li>Netz manuell wählen</li>
+      <li>Flugmodus aus/an</li>
+      <li>Netz manuell auswählen</li>
       <li>Gerät neustarten</li>
     </ul>
+  `,
+  "Telekom|Roaming funktioniert nicht": `
+    <ul>
+      <li>Roaming im Kundencenter aktivieren</li>
+      <li>APN-Einstellungen prüfen</li>
+      <li>Netz manuell wählen</li>
+    </ul>
+  `,
+  "Telekom|SIM wird nicht erkannt": `
+    <ul>
+      <li>SIM erneut einsetzen</li>
+      <li>Gerät neustarten</li>
+      <li>SIM in anderem Gerät testen</li>
+    </ul>
+  `,
+  "Telekom|Mobile Daten zu langsam": `
+    <ul>
+      <li>Netzmodus auf LTE einstellen</li>
+      <li>Datenverbrauch prüfen</li>
+    </ul>
   `
-  // Weitere Kombinationen kannst du hier hinzufügen
+  // Weitere Anbieter + Probleme kannst du hier ergänzen
 };
 
 document.getElementById("zeigeBtn").addEventListener("click", () => {
