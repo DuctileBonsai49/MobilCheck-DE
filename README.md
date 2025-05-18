@@ -1,4 +1,4 @@
-# MobilCheck-DE
+
 # MobilCheck – Dein digitaler Mobilfunk-Helfer
 
 **MobilCheck** ist ein kostenloses, interaktives Tool zur schnellen Fehlersuche und Problemlösung im Mobilfunkbereich.  
@@ -52,9 +52,8 @@ Die Lösung basiert auf aktuellen Support-Daten, Erfahrungswerten und bekannten 
 ## Live-Demo
 
 Du kannst MobilCheck sofort testen:  
-**https://dein-benutzername.github.io/MobilCheck/**
+**https://ductilebonsai49.github.io/MobilCheck-DE/**
 
-*(Hinweis: Aktiviere GitHub Pages in den Repository-Einstellungen unter „Deploy from branch“ > main.)*
 
 ## Installation (lokal)
 
