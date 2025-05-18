@@ -1,77 +1,34 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #e6f0ff;
-  padding: 30px;
-  color: #003366;
+  font-family: sans-serif;
+  background: #eee;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
-  color: #0052cc;
-  margin-bottom: 40px;
 }
 
 label {
   display: block;
-  font-weight: 600;
-  margin-top: 20px;
-  font-size: 1.1rem;
+  margin-top: 15px;
+  font-weight: bold;
 }
 
-select, button {
+select,
+button {
   width: 100%;
   max-width: 400px;
-  padding: 12px 15px;
-  margin-top: 8px;
-  border-radius: 6px;
-  border: 2px solid #0052cc;
-  background-color: #cce0ff;
-  color: #003366;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-select:focus, button:focus {
-  outline: none;
-  background-color: #99c2ff;
-  border-color: #003d99;
+  padding: 8px;
+  margin-top: 5px;
 }
 
 button {
-  font-weight: 700;
-  margin-top: 30px;
-  background-color: #0052cc;
-  color: white;
-  border: none;
-}
-
-button:hover {
-  background-color: #003d99;
+  margin-top: 20px;
 }
 
 #loesung {
-  margin-top: 40px;
-  max-width: 600px;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px 25px;
-  box-shadow: 0 4px 10px rgba(0, 82, 204, 0.3);
-  color: #003366;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-#loesung h3 {
-  margin-top: 0;
-  color: #0047b3;
-}
-
-#loesung ul {
-  padding-left: 20px;
-}
-
-#loesung ul li {
-  margin-bottom: 8px;
+  margin-top: 30px;
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ccc;
 }
