@@ -1,24 +1,26 @@
 body {
-  font-family: sans-serif;
-  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 header {
-  background: #007bff;
+  background-color: #007acc;
   color: white;
-  padding: 2rem 1rem;
+  padding: 1.5rem;
+  text-align: center;
 }
 
 main {
   padding: 2rem;
+  text-align: center;
 }
 
 .form {
-  margin: 2rem auto;
-  max-width: 500px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 select, button {
@@ -29,9 +31,19 @@ select, button {
 }
 
 .output {
+  margin-top: 2rem;
   background: white;
   padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 5px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #ddd;
+  margin-top: 2rem;
 }
