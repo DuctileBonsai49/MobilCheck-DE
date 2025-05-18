@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobilfunkhilfe</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lösungsvorschläge für Anbieter & Themen</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Mobilfunkhilfe für alle Anbieter</h1>
+  <h1>Lösungsvorschläge für Anbieter & Themen</h1>
 
   <label for="anbieter">Anbieter wählen:</label>
   <select id="anbieter">
-    <option value="SIMon mobile">SIMon mobile</option>
-    <option value="Telekom">Telekom</option>
-    <option value="Vodafone">Vodafone</option>
-    <option value="o2">o2</option>
-    <option value="1&1">1&1</option>
-    <option value="Congstar">Congstar</option>
+    <option value="">-- Bitte wählen --</option>
+    <option value="SIMON">SIMON</option>
+    <option value="TELEKOM">TELEKOM</option>
+    <option value="VODAFONE">VODAFONE</option>
   </select>
 
-  <label for="problem">Problem wählen:</label>
-  <select id="problem">
-    <option value="Kein Empfang">Kein Empfang</option>
-    <option value="Roaming funktioniert nicht">Roaming funktioniert nicht</option>
-    <option value="SIM wird nicht erkannt">SIM wird nicht erkannt</option>
-    <option value="Mobile Daten zu langsam">Mobile Daten zu langsam</option>
+  <label for="thema">Thema wählen:</label>
+  <select id="thema">
+    <option value="">-- Bitte wählen --</option>
+    <option value="Roaming">Roaming</option>
+    <option value="Netzprobleme">Netzprobleme</option>
+    <option value="Rechnung">Rechnung</option>
   </select>
 
-  <button id="zeigeBtn">Lösung anzeigen</button>
+  <button id="checkBtn">Lösung anzeigen</button>
 
   <div id="loesung"></div>
 
