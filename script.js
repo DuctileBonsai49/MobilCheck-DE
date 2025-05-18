@@ -1,72 +1,83 @@
 const loesungen = {
-  "SIMon mobile|Kein Empfang": `
-    <ul>
-      <li>Datenroaming aktivieren</li>
-      <li>Netz manuell z. B. auf KPN/Vodafone NL einstellen</li>
-      <li>Flugmodus ein/aus</li>
-      <li>SIM korrekt eingesetzt?</li>
-      <li>Gerät neu starten</li>
-    </ul>
-  `,
-  "SIMon mobile|Roaming funktioniert nicht": `
-    <ul>
-      <li>Roaming in SIMon-App aktivieren</li>
-      <li>Datenroaming in Einstellungen einschalten</li>
-      <li>Netz manuell auswählen</li>
-    </ul>
-  `,
-  "SIMon mobile|SIM wird nicht erkannt": `
-    <ul>
-      <li>SIM neu einsetzen</li>
-      <li>Handy neustarten</li>
-      <li>In anderem Gerät testen</li>
-    </ul>
-  `,
-  "SIMon mobile|Mobile Daten zu langsam": `
-    <ul>
-      <li>Netzmodus auf 4G/LTE stellen</li>
-      <li>Datenvolumen prüfen</li>
-    </ul>
-  `,
-  "Telekom|Kein Empfang": `
-    <ul>
-      <li>Flugmodus ein/aus</li>
-      <li>Netz manuell wählen</li>
-      <li>SIM korrekt eingesetzt?</li>
-    </ul>
-  `,
-  "Telekom|Roaming funktioniert nicht": `
-    <ul>
-      <li>Im Kundencenter prüfen, ob Roaming aktiv ist</li>
-      <li>Netz manuell wählen</li>
-      <li>APN-Einstellungen überprüfen</li>
-    </ul>
-  `,
-  "Telekom|SIM wird nicht erkannt": `
-    <ul>
-      <li>SIM erneut einsetzen</li>
-      <li>Gerät neustarten</li>
-      <li>SIM in anderem Gerät testen</li>
-    </ul>
-  `,
-  "Telekom|Mobile Daten zu langsam": `
-    <ul>
-      <li>Netzmodus auf LTE einstellen</li>
-      <li>Datenverbrauch prüfen</li>
-    </ul>
-  `
-  // Weitere Anbieter + Probleme kannst du hier ergänzen
+  SIMON: {
+    Roaming: [
+      "Überprüfe, ob Roaming in deinem Vertrag aktiviert ist.",
+      "Setze dein Handy einmal aus und wieder an.",
+      "Kontaktiere den SIMON-Kundendienst, falls kein Empfang vorhanden ist."
+    ],
+    Netzprobleme: [
+      "Versuche manuell ein anderes Netz auszuwählen in den Einstellungen.",
+      "Prüfe, ob ein Netzstörung vorliegt (SIMON Webseite).",
+      "Wechsle ggf. den Standort oder suche einen besseren Empfangsplatz."
+    ],
+    Rechnung: [
+      "Kontrolliere deine Rechnung online im Kundenbereich.",
+      "Bei Unklarheiten den Kundendienst kontaktieren.",
+      "Prüfe, ob alle gebuchten Leistungen korrekt abgerechnet wurden."
+    ]
+  },
+  TELEKOM: {
+    Roaming: [
+      "Roaming muss für deinen Tarif aktiviert sein.",
+      "Stelle sicher, dass dein Handy das EU-Roaming unterstützt.",
+      "Kontaktiere Telekom, wenn du im Ausland keinen Empfang hast."
+    ],
+    Netzprobleme: [
+      "Manueller Netzwechsel kann helfen.",
+      "Netzstörungen werden auf der Telekom-Statusseite angezeigt.",
+      "Deaktiviere und aktiviere den Flugmodus einmal."
+    ],
+    Rechnung: [
+      "Rechnungen findest du im MeinMagenta Bereich.",
+      "Fragen zum Tarif klärt der Kundenservice.",
+      "Kontrolliere auf nicht autorisierte Zusatzdienste."
+    ]
+  },
+  VODAFONE: {
+    Roaming: [
+      "Roaming ist in deinem Vertrag enthalten?",
+      "Handy neu starten kann Empfangsprobleme lösen.",
+      "Vodafone Kundenservice bei anhaltenden Problemen kontaktieren."
+    ],
+    Netzprobleme: [
+      "Manuelle Netzwahl probieren.",
+      "Netzstörungen unter vodafone.de/status prüfen.",
+      "SIM-Karte ggf. neu einsetzen oder prüfen lassen."
+    ],
+    Rechnung: [
+      "Rechnungen online im Kundenportal abrufen.",
+      "Unklarheiten direkt mit Vodafone klären.",
+      "Auf unerwartete Zusatzkosten achten."
+    ]
+  }
 };
 
-document.getElementById("zeigeBtn").addEventListener("click", () => {
-  const anbieter = document.getElementById("anbieter").value;
-  const problem = document.getElementById("problem").value;
-  const key = `${anbieter}|${problem}`;
-  const container = document.getElementById("loesung");
+const anbieterSelect = document.getElementById("anbieter");
+const themaSelect = document.getElementById("thema");
+const loesungDiv = document.getElementById("loesung");
+const checkBtn = document.getElementById("checkBtn");
 
-  if (loesungen[key]) {
-    container.innerHTML = `<h3>Lösung für ${anbieter} – ${problem}</h3>${loesungen[key]}`;
-  } else {
-    container.innerHTML = `<p>Für diese Kombination liegt kein Lösungsvorschlag vor.</p>`;
+checkBtn.addEventListener("click", () => {
+  const anbieter = anbieterSelect.value;
+  const thema = themaSelect.value;
+
+  if (!anbieter || !thema) {
+    loesungDiv.style.opacity = 1;
+    loesungDiv.innerHTML = "<p>Bitte wähle sowohl Anbieter als auch Thema aus.</p>";
+    return;
   }
+
+  const vorschlaege = loesungen[anbieter]?.[thema];
+
+  if (vorschlaege && vorschlaege.length > 0) {
+    let html = `<h3>Lösungsvorschläge für ${anbieter} - ${thema}</h3><ul>`;
+    for (const tipp of vorschlaege) {
+      html += `<li>${tipp}</li>`;
+    }
+    html += "</ul>";
+    loesungDiv.innerHTML = html;
+  } else {
+    loesungDiv.innerHTML = "<p>Für diese Kombination liegt kein Lösungsvorschlag vor.</p>";
+  }
+  loesungDiv.style.opacity = 1;
 });
