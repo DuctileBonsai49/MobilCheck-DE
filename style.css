@@ -1,48 +1,40 @@
 body {
-  font-family: Arial, sans-serif;
-  padding: 2em;
-  background-color: #f4f4f4;
-}
-
-h1 {
+  font-family: sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-label {
-  font-weight: bold;
-  display: block;
-  margin-top: 1em;
+header {
+  background: #007bff;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+main {
+  padding: 2rem;
+}
+
+.form {
+  margin: 2rem auto;
+  max-width: 500px;
 }
 
 select, button {
-  padding: 0.5em;
-  margin-top: 0.3em;
   width: 100%;
-  max-width: 400px;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
 }
 
-#zeigeBtn {
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 1em;
-}
-
-#zeigeBtn:hover {
-  background-color: #005fa3;
-}
-
-#loesung {
-  margin-top: 2em;
-  background-color: white;
-  padding: 1em;
+.output {
+  background: white;
+  padding: 1rem;
+  margin-top: 1rem;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-#loesung h3 {
-  margin-top: 0;
-  color: #0077cc;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
