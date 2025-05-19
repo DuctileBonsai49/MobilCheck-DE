@@ -1,96 +1,100 @@
-const logoURLs = {
-  SIMON: "https://upload.wikimedia.org/wikipedia/commons/7/75/Simon_Mobile_Logo_2022.svg",
-  TELEKOM: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Telekom_Logo_2013.svg",
-  VODAFONE: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Vodafone_icon_2022.svg",
-  O2: "https://upload.wikimedia.org/wikipedia/commons/6/6b/O2-Logo.svg",
-  "1&1": "https://upload.wikimedia.org/wikipedia/commons/9/98/1%261_Logo.svg"
-};
-
 const loesungen = {
-  SIMON: {
-    Roaming: [
-      "Stelle sicher, dass Roaming in deinem Vertrag aktiviert ist. Das kannst du im <a href='https://www.simonmobile.de/mein-simon' target='_blank'>SIMON Kundenportal</a> überprüfen.",
-      "Aktiviere Roaming in den Handy-Einstellungen: <em>Einstellungen > Mobiles Netz > Datenroaming</em>.",
-      "Starte dein Smartphone neu.",
-      "Kontaktiere den <a href='https://www.simonmobile.de/hilfe/kontakt' target='_blank'>SIMON Support</a> bei Problemen."
-    ]
+  "SIMON": {
+    "Roaming": {
+      text: "Bitte stelle sicher, dass *Datenroaming* in deinen Smartphone-Einstellungen aktiviert ist. Falls weiterhin kein Empfang besteht, prüfe im Kundenportal, ob Roaming freigeschaltet ist. Bei Problemen wende dich an den Kundenservice.",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+    },
+    "Netzprobleme": {
+      text: "SIMon nutzt das Vodafone-Netz. Bitte prüfe auf der Vodafone-Webseite, ob eine Netzstörung vorliegt. Stelle sicher, dass dein Smartphone nicht im Flugmodus ist und starte es ggf. neu.",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+    }
   },
-  TELEKOM: {
-    Roaming: [
-      "Logge dich ins <a href='https://www.telekom.de/kundencenter' target='_blank'>Telekom Kundencenter</a> ein und prüfe deine Roaming-Einstellungen.",
-      "Datenroaming am Gerät aktivieren.",
-      "Starte dein Gerät neu.",
-      "Weitere Hilfe findest du auf der <a href='https://www.telekom.de/hilfe' target='_blank'>Telekom Hilfe-Seite</a>."
-    ]
+  "TELEKOM": {
+    "Roaming": {
+      text: "Im Ausland muss *Roaming* im Handy aktiviert sein. Logge dich ins Kundencenter ein, um zu prüfen, ob Roaming für deinen Vertrag aktiv ist.",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Telekom_Logo_2013.svg/512px-Telekom_Logo_2013.svg.png"
+    }
   },
-  VODAFONE: {
-    Roaming: [
-      "Roaming aktivierst du unter <a href='https://www.vodafone.de/meinvodafone' target='_blank'>MeinVodafone</a>.",
-      "Auch auf deinem Handy musst du Datenroaming aktivieren.",
-      "Starte das Gerät neu.",
-      "Mehr Infos unter <a href='https://www.vodafone.de/hilfe' target='_blank'>Vodafone Hilfe</a>."
-    ]
+  "VODAFONE": {
+    "Netzprobleme": {
+      text: "Bitte rufe die Vodafone-Netzabdeckungskarte auf und prüfe aktuelle Störungen in deiner Region. Ein Neustart des Handys hilft oft.",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Vodafone_icon_2022.svg/512px-Vodafone_icon_2022.svg.png"
+    }
   },
-  O2: {
-    Roaming: [
-      "Logge dich bei <a href='https://www.o2online.de' target='_blank'>Mein O2</a> ein und prüfe, ob Roaming aktiv ist.",
-      "Auf deinem Handy: <em>Datenroaming</em> aktivieren.",
-      "Starte das Gerät neu.",
-      "Bei Fragen hilft die <a href='https://www.o2online.de/service' target='_blank'>O2 Service-Seite</a>."
-    ]
+  "O2": {
+    "Vertragsdaten": {
+      text: "Logge dich in die Mein O2 App oder Website ein, um deine Vertragsdaten und eventuelle Sperrungen einzusehen.",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Telef%C3%B3nica_O2_Deutschland_2011_logo.svg/512px-Telef%C3%B3nica_O2_Deutschland_2011_logo.svg.png"
+    }
   },
   "1&1": {
-    Roaming: [
-      "Rufe das <a href='https://kundenshop.1und1.de/login' target='_blank'>1&1 Control-Center</a> auf und prüfe, ob Roaming aktiviert ist.",
-      "Aktiviere zusätzlich Roaming auf deinem Handy: <em>Einstellungen > Mobile Daten > Datenroaming</em>.",
-      "Starte dein Handy neu.",
-      "Bei Problemen kannst du den <a href='https://www.1und1.de/service' target='_blank'>1&1 Kundenservice</a> kontaktieren."
-    ],
-    Netzprobleme: [
-      "Überprüfe die Netzabdeckung auf der <a href='https://www.1und1.de/netz' target='_blank'>1&1 Netzabdeckungskarte</a>.",
-      "Schalte den Flugmodus kurz ein und wieder aus.",
-      "Wähle manuell ein anderes verfügbares Netz.",
-      "Falls weiterhin kein Empfang: Kontaktiere den 1&1 Support."
-    ]
+    "SIM-Aktivierung": {
+      text: "Deine SIM-Karte kann online über das 1&1 Control-Center aktiviert werden. Achte darauf, die Identifikation vollständig abzuschließen.",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/1%261_Logo_2021.svg/512px-1%261_Logo_2021.svg.png"
+    }
   }
 };
 
-// DOM
-const anbieterSelect = document.getElementById("anbieter");
-const themaSelect = document.getElementById("thema");
-const loesungDiv = document.getElementById("loesung");
-const checkBtn = document.getElementById("checkBtn");
-
-checkBtn.addEventListener("click", () => {
-  const anbieter = anbieterSelect.value;
-  const thema = themaSelect.value;
-
-  if (!anbieter || !thema) {
-    loesungDiv.innerHTML = "<p>Bitte wähle sowohl Anbieter als auch Thema aus.</p>";
-    loesungDiv.classList.add("visible");
-    return;
+const translations = {
+  de: {
+    title: "Mobilfunkhilfe",
+    description: "Wähle deinen Anbieter und ein Thema, um passende Lösungsvorschläge zu erhalten.",
+    labelProvider: "Anbieter:",
+    labelTopic: "Thema:",
+    noSolution: "Für diese Kombination liegt kein Lösungsvorschlag vor.",
+    buttonText: "Lösungen anzeigen"
+  },
+  en: {
+    title: "Mobile Support",
+    description: "Select your provider and a topic to see available solutions.",
+    labelProvider: "Provider:",
+    labelTopic: "Topic:",
+    noSolution: "No solution available for this combination.",
+    buttonText: "Show Solutions"
   }
+};
 
-  const vorschlaege = loesungen[anbieter]?.[thema];
-  const logoURL = logoURLs[anbieter];
+document.getElementById("checkBtn").addEventListener("click", () => {
+  const anbieter = document.getElementById("anbieter").value;
+  const thema = document.getElementById("thema").value;
+  const box = document.getElementById("loesung");
 
-  if (vorschlaege && vorschlaege.length > 0) {
-    let html = `
-      <div style="text-align:center;margin-bottom:10px;">
-        <img src="${logoURL}" alt="${anbieter} Logo" style="max-height:60px;">
-      </div>
-      <h3>Lösungsvorschläge für ${anbieter} – ${thema}</h3>
-      <ul>`;
-    vorschlaege.forEach(tipp => html += `<li>${tipp}</li>`);
-    html += "</ul>";
-    loesungDiv.innerHTML = html;
+  if (loesungen[anbieter] && loesungen[anbieter][thema]) {
+    const info = loesungen[anbieter][thema];
+    box.innerHTML = `<p>${info.text}</p><img src="${info.logo}" alt="${anbieter} Logo">`;
   } else {
-    loesungDiv.innerHTML = `
-      <div style="text-align:center;margin-bottom:10px;">
-        <img src="${logoURL}" alt="${anbieter} Logo" style="max-height:60px;">
-      </div>
-      <p>Für diese Kombination liegt aktuell kein Lösungsvorschlag vor.</p>`;
+    const lang = document.getElementById("languageSwitch").value;
+    box.innerHTML = `<p>${translations[lang].noSolution}</p>`;
   }
+});
 
-  loesungDiv.classList.add("visible");
+// Sprachumschaltung
+document.getElementById("languageSwitch").addEventListener("change", (e) => {
+  const lang = e.target.value;
+  document.getElementById("title").innerText = translations[lang].title;
+  document.getElementById("description").innerText = translations[lang].description;
+  document.getElementById("labelProvider").innerText = translations[lang].labelProvider;
+  document.getElementById("labelTopic").innerText = translations[lang].labelTopic;
+  document.getElementById("checkBtn").innerText = translations[lang].buttonText;
+});
+
+// Dark Mode Toggle
+document.getElementById("toggleTheme").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+// Live-Suche
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  const val = e.target.value.toLowerCase();
+  const resultBox = document.getElementById("loesung");
+  for (let provider in loesungen) {
+    for (let topic in loesungen[provider]) {
+      const info = loesungen[provider][topic];
+      if (info.text.toLowerCase().includes(val)) {
+        resultBox.innerHTML = `<p>${info.text}</p><img src="${info.logo}" alt="${provider} Logo">`;
+        return;
+      }
+    }
+  }
+  resultBox.innerHTML = `<p>Keine passende Lösung gefunden.</p>`;
 });
