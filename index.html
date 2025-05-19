@@ -4,55 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mobilfunkhilfe</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="topbar">
-    <span><strong>Mobilfunkhilfe</strong></span>
-    <input type="text" id="searchInput" placeholder="Problem suchen..." />
-    <div class="toggle-group">
-      <span id="languageEmoji">🇩🇪</span>
-      <select id="languageSwitch">
+  <header>
+    <h1>Mobilfunkhilfe</h1>
+
+    <div class="controls">
+      <!-- Sprache Auswahl -->
+      <label for="sprache-select" class="label-emoji" title="Sprache wählen">
+        🌐
+      </label>
+      <select id="sprache-select" aria-label="Sprache auswählen">
         <option value="de">Deutsch</option>
         <option value="en">English</option>
       </select>
-      <select id="themeSwitch">
-        <option value="default">Standard</option>
-        <option value="blue">Blau</option>
-        <option value="green">Grün</option>
-        <option value="dark">Dunkel</option>
-      </select>
-    </div>
-  </div>
 
-  <div class="container">
-    <h1 id="title">Mobilfunkhilfe</h1>
-    <p id="description">Wähle deinen Anbieter und ein Thema, um passende Lösungsvorschläge zu erhalten.</p>
-
-    <div class="form-group">
-      <label for="anbieter" id="labelProvider">Anbieter:</label>
-      <select id="anbieter">
-        <option value="SIMON">SIMon mobile</option>
+      <!-- Anbieter Auswahl -->
+      <label for="anbieter-select">Anbieter:</label>
+      <select id="anbieter-select" aria-label="Mobilfunkanbieter auswählen">
+        <option value="">-- Bitte wählen --</option>
+        <option value="SIMON">SIMON</option>
         <option value="TELEKOM">Telekom</option>
         <option value="VODAFONE">Vodafone</option>
         <option value="O2">O2</option>
-        <option value="1&1">1&1</option>
+        <option value="1und1">1&1</option>
       </select>
-    </div>
 
-    <div class="form-group">
-      <label for="thema" id="labelTopic">Thema:</label>
-      <select id="thema">
+      <!-- Thema Auswahl -->
+      <label for="thema-select">Thema:</label>
+      <select id="thema-select" aria-label="Thema auswählen" disabled>
+        <option value="">-- Bitte wählen --</option>
         <option value="Roaming">Roaming</option>
         <option value="Netzprobleme">Netzprobleme</option>
         <option value="Vertragsdaten">Vertragsdaten</option>
         <option value="SIM-Aktivierung">SIM-Aktivierung</option>
       </select>
-    </div>
 
-    <button id="checkBtn">Lösungen anzeigen</button>
-    <div id="loesung" class="loesung-box"></div>
-  </div>
+      <!-- Theme Auswahl -->
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select" aria-label="Design Theme auswählen">
+        <option value="light">Hell</option>
+        <option value="dark">Dunkel</option>
+        <option value="highcontrast">Hoher Kontrast</option>
+        <option value="blue">Blau</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div id="ergebnis-container">
+      <img id="anbieter-logo" alt="" />
+      <div id="loesung-text"></div>
+    </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
