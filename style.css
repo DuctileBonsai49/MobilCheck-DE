@@ -1,49 +1,52 @@
 :root {
-  --color-bg-light: #f5f5f5;
-  --color-text-light: #222;
-  --color-bg-dark: #1e1e1e;
-  --color-text-dark: #f5f5f5;
-  --color-blue: #0077cc;
-  --color-box: #ffffff;
+  --light-bg: #f4f4f4;
+  --light-text: #111;
+  --dark-bg: #1c1c1c;
+  --dark-text: #eee;
+  --blue-bg: #e8f4fd;
+  --blue-text: #003366;
+  --accent: #007acc;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: var(--color-bg-light);
-  color: var(--color-text-light);
   transition: background-color 0.3s, color 0.3s;
 }
 
+body[data-theme="light"] {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
 body[data-theme="dark"] {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-dark);
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
 }
 
 body[data-theme="blue"] {
-  background-color: #e6f2ff;
-  color: #003366;
+  background-color: var(--blue-bg);
+  color: var(--blue-text);
 }
 
 .topbar {
+  background-color: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--color-blue);
-  color: white;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
-.controls select {
-  margin-left: 1rem;
+.settings select {
+  margin-left: 0.5rem;
   padding: 0.4rem;
-  border-radius: 4px;
+  font-size: 1rem;
 }
 
 main {
@@ -53,24 +56,25 @@ main {
 .selectors {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 select {
   padding: 0.6rem;
-  border-radius: 5px;
   font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .solution-box {
-  padding: 1rem;
-  border-radius: 6px;
-  background-color: var(--color-box);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 600px;
 }
 
 .solution-box img {
-  max-width: 150px;
   margin-top: 1rem;
+  max-width: 150px;
 }
