@@ -18,7 +18,7 @@ const loesungen = {
   TELEKOM: {
     Roaming: [
       "Logge dich ins <a href='https://www.telekom.de/kundencenter' target='_blank'>Telekom Kundencenter</a> ein und prüfe deine Roaming-Einstellungen.",
-      "Datenroaming am Gerät aktivieren: <em>Einstellungen > Mobiles Netz > Datenroaming</em>.",
+      "Datenroaming am Gerät aktivieren.",
       "Starte dein Gerät neu.",
       "Weitere Hilfe findest du auf der <a href='https://www.telekom.de/hilfe' target='_blank'>Telekom Hilfe-Seite</a>."
     ]
@@ -43,7 +43,7 @@ const loesungen = {
     Roaming: [
       "Rufe das <a href='https://kundenshop.1und1.de/login' target='_blank'>1&1 Control-Center</a> auf und prüfe, ob Roaming aktiviert ist.",
       "Aktiviere zusätzlich Roaming auf deinem Handy: <em>Einstellungen > Mobile Daten > Datenroaming</em>.",
-      "Starte dein Handy neu, damit sich das Gerät neu mit dem Netz verbindet.",
+      "Starte dein Handy neu.",
       "Bei Problemen kannst du den <a href='https://www.1und1.de/service' target='_blank'>1&1 Kundenservice</a> kontaktieren."
     ],
     Netzprobleme: [
@@ -55,20 +55,19 @@ const loesungen = {
   }
 };
 
-// DOM-Elemente
+// DOM
 const anbieterSelect = document.getElementById("anbieter");
 const themaSelect = document.getElementById("thema");
 const loesungDiv = document.getElementById("loesung");
 const checkBtn = document.getElementById("checkBtn");
 
-// Event-Listener
 checkBtn.addEventListener("click", () => {
   const anbieter = anbieterSelect.value;
   const thema = themaSelect.value;
 
   if (!anbieter || !thema) {
-    loesungDiv.classList.add("visible");
     loesungDiv.innerHTML = "<p>Bitte wähle sowohl Anbieter als auch Thema aus.</p>";
+    loesungDiv.classList.add("visible");
     return;
   }
 
@@ -82,9 +81,7 @@ checkBtn.addEventListener("click", () => {
       </div>
       <h3>Lösungsvorschläge für ${anbieter} – ${thema}</h3>
       <ul>`;
-    for (const tipp of vorschlaege) {
-      html += `<li>${tipp}</li>`;
-    }
+    vorschlaege.forEach(tipp => html += `<li>${tipp}</li>`);
     html += "</ul>";
     loesungDiv.innerHTML = html;
   } else {
