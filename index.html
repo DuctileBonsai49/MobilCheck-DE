@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MobilCheck-DE</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mobilfunkhilfe</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <main>
-    <h1>MobilCheck-DE</h1>
+  <div class="container">
+    <h1>Mobilfunkhilfe</h1>
+    <p>Wähle deinen Anbieter und ein Thema, um passende Lösungsvorschläge zu erhalten.</p>
 
-    <section class="controls">
-      <label for="anbieter"><strong>Anbieter:</strong></label>
-      <select id="anbieter" name="anbieter">
+    <div class="form-group">
+      <label for="anbieter">Anbieter:</label>
+      <select id="anbieter">
         <option value="">-- Bitte wählen --</option>
-        <option value="SIMON">SIMON</option>
-        <option value="TELEKOM">TELEKOM</option>
-        <option value="VODAFONE">VODAFONE</option>
+        <option value="SIMON">SIMON Mobile</option>
+        <option value="TELEKOM">Telekom</option>
+        <option value="VODAFONE">Vodafone</option>
         <option value="O2">O2</option>
+        <option value="1&1">1&1</option>
       </select>
+    </div>
 
-      <label for="thema"><strong>Thema:</strong></label>
-      <select id="thema" name="thema">
+    <div class="form-group">
+      <label for="thema">Thema:</label>
+      <select id="thema">
         <option value="">-- Bitte wählen --</option>
         <option value="Roaming">Roaming</option>
         <option value="Netzprobleme">Netzprobleme</option>
-        <option value="Rechnung">Rechnung</option>
-        <option value="Vertragswechsel">Vertragswechsel</option>
-        <option value="Kündigung">Kündigung</option>
       </select>
+    </div>
 
-      <button id="checkBtn" type="button">Lösung anzeigen</button>
-    </section>
+    <button id="checkBtn">Lösungen anzeigen</button>
 
-    <section id="loesung" class="loesung-box" aria-live="polite" role="region">
-      <!-- Lösungsvorschläge erscheinen hier -->
-    </section>
-  </main>
+    <div id="loesung" class="loesung-box"></div>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
