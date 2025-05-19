@@ -1,123 +1,218 @@
-// Lösungsvorschläge mit Logo und Links, auch für 1&1 komplett
+// Lösungstexte in Deutsch & Englisch inkl. ausführlichem Text + Logo-URL
 const loesungen = {
-  "SIMON": {
-    "Roaming": {
-      text: `Stelle sicher, dass Datenroaming in deinen Smartphone-Einstellungen aktiviert ist. Prüfe im <a href="https://www.simonmobile.de/mein-simon" target="_blank">SIMON Kundenportal</a>, ob Roaming freigeschaltet ist. Bei Problemen wende dich an den <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank">SIMON Support</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+  SIMON: {
+    Roaming: {
+      de: {
+        text: `Stelle sicher, dass Datenroaming in deinen Smartphone-Einstellungen aktiviert ist. 
+          Ohne aktiviertes Roaming kannst du im Ausland keine mobilen Daten nutzen.<br>
+          Logge dich außerdem in das <a href="https://www.simonmobile.de/mein-simon" target="_blank" rel="noopener">SIMON Kundenportal</a> ein, um zu prüfen, ob Roaming für deine SIM freigeschaltet ist.<br>
+          Solltest du weiterhin Probleme haben, kontaktiere den <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank" rel="noopener">SIMON Kundenservice</a> direkt.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      },
+      en: {
+        text: `Make sure that data roaming is enabled in your smartphone settings. 
+          Without roaming enabled, you won't be able to use mobile data abroad.<br>
+          Also, log in to the <a href="https://www.simonmobile.de/mein-simon" target="_blank" rel="noopener">SIMON customer portal</a> to check if roaming is activated for your SIM.<br>
+          If you still have issues, contact the <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank" rel="noopener">SIMON customer service</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      }
     },
-    "Netzprobleme": {
-      text: `Prüfe die Netzabdeckung auf <a href="https://www.simonmobile.de/netz" target="_blank">SIMON Netzinfo</a>. Starte dein Handy neu und schalte den Flugmodus kurz an und aus. Bleiben Probleme, kontaktiere den <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank">Kundendienst</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+    Netzprobleme: {
+      de: {
+        text: `Prüfe die Netzabdeckung in deiner Region auf der <a href="https://www.simonmobile.de/netz" target="_blank" rel="noopener">SIMON Netzinfo-Seite</a>.<br>
+          Ein Neustart des Smartphones und das kurzzeitige Aktivieren des Flugmodus kann oft helfen.<br>
+          Falls weiterhin Probleme bestehen, wende dich an den <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank" rel="noopener">SIMON Support</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      },
+      en: {
+        text: `Check the network coverage in your area on the <a href="https://www.simonmobile.de/netz" target="_blank" rel="noopener">SIMON network info page</a>.<br>
+          Restarting your smartphone and toggling airplane mode on and off often helps.<br>
+          If issues persist, contact <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank" rel="noopener">SIMON support</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      }
     },
-    "Vertragsdaten": {
-      text: `Logge dich im <a href="https://www.simonmobile.de/mein-simon" target="_blank">Kundenportal</a> ein, um deine Vertragsdaten einzusehen. Für Änderungen wende dich an den <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank">Support</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+    Vertragsdaten: {
+      de: {
+        text: `Du kannst deine Vertragsdaten jederzeit im <a href="https://www.simonmobile.de/mein-simon" target="_blank" rel="noopener">Kundenportal</a> einsehen.<br>
+          Für Vertragsänderungen kontaktiere bitte den <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank" rel="noopener">SIMON Support</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      },
+      en: {
+        text: `You can view your contract details anytime in the <a href="https://www.simonmobile.de/mein-simon" target="_blank" rel="noopener">customer portal</a>.<br>
+          For contract changes, please contact <a href="https://www.simonmobile.de/hilfe/kontakt" target="_blank" rel="noopener">SIMON support</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      }
     },
     "SIM-Aktivierung": {
-      text: `Die SIM-Aktivierung erfolgt automatisch innerhalb von 24 Stunden nach Erhalt. Falls nicht, überprüfe die Aktivierungsanleitung auf <a href="https://www.simonmobile.de/hilfe/sim-aktivierung" target="_blank">SIMON Hilfe</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      de: {
+        text: `Die SIM-Aktivierung erfolgt in der Regel automatisch.<br>
+          Sollte das nicht passieren, findest du hier eine Anleitung: <a href="https://www.simonmobile.de/hilfe/sim-aktivierung" target="_blank" rel="noopener">SIMON SIM-Aktivierung</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      },
+      en: {
+        text: `SIM activation usually happens automatically.<br>
+          If it does not, you can find instructions here: <a href="https://www.simonmobile.de/hilfe/sim-aktivierung" target="_blank" rel="noopener">SIMON SIM Activation</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SIMon_mobile_Logo.svg/512px-SIMon_mobile_Logo.svg.png"
+      }
     }
   },
-  "TELEKOM": {
-    "Roaming": {
-      text: `Aktiviere Daten-Roaming in den Einstellungen. Infos zu Roaming-Tarifen findest du auf <a href="https://www.telekom.de/hilfe/mobilfunk/roaming" target="_blank">Telekom Roaming</a>. Support: <a href="https://www.telekom.de/kontakt" target="_blank">Telekom Kontakt</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Deutsche_Telekom_Logo_2022.svg/512px-Deutsche_Telekom_Logo_2022.svg.png"
+
+  TELEKOM: {
+    Roaming: {
+      de: {
+        text: `Bei der Telekom solltest du im Ausland Roaming in den Einstellungen aktivieren.<br>
+          Prüfe auch, ob dein Vertrag Roaming unterstützt.<br>
+          Mehr Infos findest du im <a href="https://www.telekom.de/hilfe/mobilfunk/roaming" target="_blank" rel="noopener">Telekom Roaming Hilfebereich</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      },
+      en: {
+        text: `For Telekom, enable roaming in your settings when abroad.<br>
+          Also check if your contract supports roaming.<br>
+          More info at the <a href="https://www.telekom.de/hilfe/mobilfunk/roaming" target="_blank" rel="noopener">Telekom roaming help page</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      }
     },
-    "Netzprobleme": {
-      text: `Prüfe die Netzabdeckung auf <a href="https://www.telekom.de/netzausbau" target="_blank">Telekom Netzinfo</a>. Versuche Neustart und Flugmodus an/aus. Support über <a href="https://www.telekom.de/kontakt" target="_blank">Telekom Kontakt</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Deutsche_Telekom_Logo_2022.svg/512px-Deutsche_Telekom_Logo_2022.svg.png"
+    Netzprobleme: {
+      de: {
+        text: `Telekom Netzprobleme können oft durch einen Neustart des Geräts behoben werden.<br>
+          Falls nicht, kontaktiere den <a href="https://www.telekom.de/kontakt" target="_blank" rel="noopener">Telekom Kundenservice</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      },
+      en: {
+        text: `Telekom network issues can often be solved by restarting your device.<br>
+          If not, contact <a href="https://www.telekom.de/kontakt" target="_blank" rel="noopener">Telekom customer service</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      }
     },
-    "Vertragsdaten": {
-      text: `Vertragsdetails findest du im <a href="https://www.telekom.de/mein-mobilfunk" target="_blank">Telekom Kundenportal</a>. Änderungen über <a href="https://www.telekom.de/kontakt" target="_blank">Support</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Deutsche_Telekom_Logo_2022.svg/512px-Deutsche_Telekom_Logo_2022.svg.png"
+    Vertragsdaten: {
+      de: {
+        text: `Deine Vertragsdaten kannst du im <a href="https://www.telekom.de/mein-telekom" target="_blank" rel="noopener">Telekom Kundenportal</a> einsehen.<br>
+          Für Vertragsänderungen wende dich an den Kundenservice.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      },
+      en: {
+        text: `You can view your contract details in the <a href="https://www.telekom.de/mein-telekom" target="_blank" rel="noopener">Telekom customer portal</a>.<br>
+          For contract changes, contact customer service.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      }
     },
     "SIM-Aktivierung": {
-      text: `SIM-Aktivierung erfolgt meist automatisch. Falls nicht, folge der Anleitung auf <a href="https://www.telekom.de/hilfe/sim-aktivierung" target="_blank">Telekom Hilfe</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Deutsche_Telekom_Logo_2022.svg/512px-Deutsche_Telekom_Logo_2022.svg.png"
+      de: {
+        text: `SIM-Aktivierung bei Telekom erfolgt meist automatisch.<br>
+          Falls nicht, findest du Hilfe im <a href="https://www.telekom.de/hilfe/mobilfunk/sim-aktivierung" target="_blank" rel="noopener">Telekom Hilfe-Bereich</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      },
+      en: {
+        text: `SIM activation usually happens automatically at Telekom.<br>
+          If not, find help in the <a href="https://www.telekom.de/hilfe/mobilfunk/sim-aktivierung" target="_blank" rel="noopener">Telekom help section</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
+      }
     }
   },
-  "VODAFONE": {
-    "Roaming": {
-      text: `Aktiviere Roaming in den Einstellungen. Infos zu Roaming-Tarifen unter <a href="https://www.vodafone.de/hilfe/roaming.html" target="_blank">Vodafone Roaming</a>. Support: <a href="https://www.vodafone.de/hilfe/kontakt.html" target="_blank">Vodafone Kontakt</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Vodafone_2017_logo.svg/512px-Vodafone_2017_logo.svg.png"
+
+  VODAFONE: {
+    Roaming: {
+      de: {
+        text: `Vodafone Roaming muss in den Einstellungen aktiviert werden.<br>
+          Prüfe deinen Vertrag auf Roaming-Optionen.<br>
+          Hilfe findest du unter <a href="https://www.vodafone.de/hilfe/roaming" target="_blank" rel="noopener">Vodafone Roaming</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      },
+      en: {
+        text: `Enable Vodafone roaming in your settings.<br>
+          Check your contract for roaming options.<br>
+          Help at <a href="https://www.vodafone.de/hilfe/roaming" target="_blank" rel="noopener">Vodafone roaming</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      }
     },
-    "Netzprobleme": {
-      text: `Prüfe Netzabdeckung unter <a href="https://www.vodafone.de/hilfe/netzabdeckung.html" target="_blank">Vodafone Netz</a>. Neustart und Flugmodus helfen oft. Support: <a href="https://www.vodafone.de/hilfe/kontakt.html" target="_blank">Kontakt</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Vodafone_2017_logo.svg/512px-Vodafone_2017_logo.svg.png"
+    Netzprobleme: {
+      de: {
+        text: `Bei Netzproblemen hilft oft ein Neustart des Handys.<br>
+          Weitere Hilfe unter <a href="https://www.vodafone.de/hilfe/netzprobleme" target="_blank" rel="noopener">Vodafone Netzprobleme</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      },
+      en: {
+        text: `Restart your phone to solve network issues.<br>
+          More help at <a href="https://www.vodafone.de/hilfe/netzprobleme" target="_blank" rel="noopener">Vodafone network issues</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      }
     },
-    "Vertragsdaten": {
-      text: `Details im <a href="https://www.vodafone.de/meinkonto" target="_blank">MeinVodafone Kundenportal</a>. Änderungen über Support.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Vodafone_2017_logo.svg/512px-Vodafone_2017_logo.svg.png"
+    Vertragsdaten: {
+      de: {
+        text: `Vertragsdaten kannst du im <a href="https://www.vodafone.de/mein-vodafone" target="_blank" rel="noopener">Vodafone Kundenportal</a> prüfen.<br>
+          Änderungen über Kundenservice.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      },
+      en: {
+        text: `Check your contract details in the <a href="https://www.vodafone.de/mein-vodafone" target="_blank" rel="noopener">Vodafone customer portal</a>.<br>
+          Changes via customer service.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      }
     },
     "SIM-Aktivierung": {
-      text: `SIM-Aktivierung erfolgt automatisch oder per Anleitung auf <a href="https://www.vodafone.de/hilfe/sim-aktivierung.html" target="_blank">Vodafone Hilfe</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Vodafone_2017_logo.svg/512px-Vodafone_2017_logo.svg.png"
+      de: {
+        text: `SIM wird meistens automatisch aktiviert.<br>
+          Hilfe hier: <a href="https://www.vodafone.de/hilfe/sim-aktivierung" target="_blank" rel="noopener">Vodafone SIM Aktivierung</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      },
+      en: {
+        text: `SIM usually activates automatically.<br>
+          Help here: <a href="https://www.vodafone.de/hilfe/sim-aktivierung" target="_blank" rel="noopener">Vodafone SIM activation</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
+      }
     }
   },
-  "O2": {
-    "Roaming": {
-      text: `Datenroaming aktivieren. Infos zu EU-Roaming unter <a href="https://www.o2online.de/service/roaming/eu-roaming/" target="_blank">O2 EU-Roaming</a>. Support: <a href="https://www.o2online.de/service/kontakt/" target="_blank">O2 Kontakt</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/O2_Logo_2014.svg/512px-O2_Logo_2014.svg.png"
+
+  O2: {
+    Roaming: {
+      de: {
+        text: `Aktiviere Roaming in deinen Geräteeinstellungen.<br>
+          Prüfe, ob dein O2-Vertrag Roaming enthält.<br>
+          Mehr dazu im <a href="https://www.o2online.de/hilfe/roaming" target="_blank" rel="noopener">O2 Roaming Bereich</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      },
+      en: {
+        text: `Enable roaming in your device settings.<br>
+          Check if your O2 contract includes roaming.<br>
+          More at <a href="https://www.o2online.de/hilfe/roaming" target="_blank" rel="noopener">O2 roaming info</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      }
     },
-    "Netzprobleme": {
-      text: `Netzabdeckung prüfen auf <a href="https://www.o2online.de/service/netz/netzabdeckung/" target="_blank">O2 Netzabdeckung</a>. Neustart/Flugmodus probieren. Support kontaktieren.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/O2_Logo_2014.svg/512px-O2_Logo_2014.svg.png"
+    Netzprobleme: {
+      de: {
+        text: `Starte dein Handy neu, um Netzprobleme zu beheben.<br>
+          Kontakt bei anhaltenden Problemen: <a href="https://www.o2online.de/hilfe/kontakt" target="_blank" rel="noopener">O2 Kontakt</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      },
+      en: {
+        text: `Restart your phone to fix network issues.<br>
+          Contact if problems persist: <a href="https://www.o2online.de/hilfe/kontakt" target="_blank" rel="noopener">O2 contact</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      }
     },
-    "Vertragsdaten": {
-      text: `Vertragsdetails im <a href="https://www.o2online.de/mein-o2/" target="_blank">MeinO2 Portal</a>. Änderungen per Support.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/O2_Logo_2014.svg/512px-O2_Logo_2014.svg.png"
+    Vertragsdaten: {
+      de: {
+        text: `Vertragsdaten findest du im <a href="https://www.o2online.de/mein-o2" target="_blank" rel="noopener">Mein O2 Kundenportal</a>.<br>
+          Änderungen über Kundenservice.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      },
+      en: {
+        text: `Find contract details in the <a href="https://www.o2online.de/mein-o2" target="_blank" rel="noopener">Mein O2 customer portal</a>.<br>
+          Changes via customer service.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      }
     },
     "SIM-Aktivierung": {
-      text: `SIM-Aktivierung via Anleitung auf <a href="https://www.o2online.de/service/hilfe/sim-karte-aktivieren/" target="_blank">O2 Hilfe</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/O2_Logo_2014.svg/512px-O2_Logo_2014.svg.png"
-    }
-  },
-  "1&1": {
-    "Roaming": {
-      text: `Datenroaming in den Einstellungen aktivieren. Infos und FAQs findest du im <a href="https://www.1und1.de/hilfe/mobilfunk/roaming" target="_blank">1&1 Roaming Bereich</a>. Bei Problemen hilft der <a href="https://www.1und1.de/hilfe/kontakt" target="_blank">Kundensupport</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/1und1_Logo_2020.svg/512px-1und1_Logo_2020.svg.png"
-    },
-    "Netzprobleme": {
-      text: `Prüfe die Netzabdeckung auf <a href="https://www.1und1.de/hilfe/mobilfunk/netz" target="_blank">1&1 Netzinfo</a>. Starte dein Gerät neu, aktiviere kurz Flugmodus. Hilfe bekommst du vom <a href="https://www.1und1.de/hilfe/kontakt" target="_blank">Support</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/1und1_Logo_2020.svg/512px-1und1_Logo_2020.svg.png"
-    },
-    "Vertragsdaten": {
-      text: `Vertragsdetails findest du in deinem <a href="https://www.1und1.de/login" target="_blank">1&1 Kundenportal</a>. Änderungen oder Fragen klärst du mit dem <a href="https://www.1und1.de/hilfe/kontakt" target="_blank">Kundendienst</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/1und1_Logo_2020.svg/512px-1und1_Logo_2020.svg.png"
-    },
-    "SIM-Aktivierung": {
-      text: `SIM-Aktivierung erfolgt meist automatisch. Falls nicht, findest du eine Anleitung im <a href="https://www.1und1.de/hilfe/mobilfunk/sim-aktivierung" target="_blank">1&1 Hilfe-Bereich</a>.`,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/1und1_Logo_2020.svg/512px-1und1_Logo_2020.svg.png"
+      de: {
+        text: `SIM wird normalerweise automatisch aktiviert.<br>
+          Falls nicht, siehe <a href="https://www.o2online.de/hilfe/sim-aktivierung" target="_blank" rel="noopener">O2 SIM Aktivierung</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      },
+      en: {
+        text: `SIM usually activates automatically.<br>
+          If not, see <a href="https://www.o2online.de/hilfe/sim-aktivierung" target="_blank" rel="noopener">O2 SIM activation</a>.`,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/O2_logo_2014.svg"
+      }
     }
   }
 };
-
-// Elemente aus HTML
-const anbieterSelect = document.getElementById("anbieter");
-const themaSelect = document.getElementById("thema");
-const loesungContainer = document.getElementById("loesung");
-const logoImg = document.getElementById("anbieter-logo");
-
-// Wenn Anbieter sich ändert, Thema zurücksetzen und Lösung löschen
-anbieterSelect.addEventListener("change", () => {
-  themaSelect.selectedIndex = 0;
-  loesungContainer.innerHTML = "";
-  logoImg.src = "";
-});
-
-// Wenn Thema sich ändert, Lösung anzeigen
-themaSelect.addEventListener("change", () => {
-  const anbieter = anbieterSelect.value;
-  const thema = themaSelect.value;
-
-  if (anbieter && thema && loesungen[anbieter] && loesungen[anbieter][thema]) {
-    const info = loesungen[anbieter][thema];
-    loesungContainer.innerHTML = info.text;
-    logoImg.src = info.logo;
-    logoImg.alt = anbieter + " Logo";
-  } else {
-    loesungContainer.innerHTML = "<p>Für diese Kombination sind noch keine Lösungen vorhanden.</p>";
-    logoImg.src = "";
-    logoImg.alt = "";
-  }
-});
