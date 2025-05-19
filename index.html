@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MobilCheck</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="title">MobilCheck</div>
-    <div class="settings">
-      <label for="language-select">Sprache:</label>
-      <select id="language-select">
-        <option value="de">Deutsch</option>
-        <option value="en">English</option>
-      </select>
-
-      <label for="theme-select">Design:</label>
-      <select id="theme-select">
-        <option value="light">Hell</option>
-        <option value="dark">Dunkel</option>
-        <option value="blue">Blau</option>
-      </select>
-    </div>
-  </header>
-
-  <main>
+  <div class="container">
+    <h1>MobilCheck</h1>
     <div class="selectors">
-      <select id="provider-select"></select>
-      <select id="topic-select" disabled></select>
+      <select id="anbieter">
+        <option value="">Anbieter wählen</option>
+        <option value="telekom">Telekom</option>
+        <option value="vodafone">Vodafone</option>
+        <option value="o2">O2</option>
+        <option value="1und1">1&1</option>
+        <option value="simon">SIMon mobile</option>
+      </select>
+
+      <select id="thema">
+        <option value="">Thema wählen</option>
+        <option value="keinEmpfang">Kein Empfang</option>
+        <option value="roaming">Roaming</option>
+        <option value="smsProbleme">SMS-Probleme</option>
+        <option value="internetLangsam">Internet langsam</option>
+      </select>
     </div>
 
-    <div id="solution" class="solution-box">
-      <p>Bitte wähle einen Anbieter und ein Thema aus.</p>
-    </div>
-  </main>
+    <div id="logoContainer"></div>
+    <div id="loesung"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
