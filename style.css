@@ -1,84 +1,113 @@
-/* Grunddesign */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  background-color: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Layout */
-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.controls label {
-  font-weight: bold;
-  margin-left: 5px;
-  margin-right: 3px;
-}
-
-.controls select {
-  padding: 5px;
-  font-size: 1rem;
-}
-
-/* Ergebnis Bereich */
-#ergebnis-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  border: 1px solid #ccc;
+.container {
+  max-width: 700px;
+  margin: auto;
   padding: 15px;
   border-radius: 8px;
-  min-height: 150px;
+  background-color: var(--box-bg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-#anbieter-logo {
-  max-width: 120px;
-  max-height: 120px;
-  object-fit: contain;
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+label {
+  font-weight: 600;
+  margin-right: 6px;
+  align-self: center;
+}
+
+select {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  min-width: 140px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 5px var(--accent);
+}
+
+#solution {
+  border: 2px solid var(--border);
+  padding: 20px;
   border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-#loesung-text {
-  flex: 1;
+  background-color: var(--solution-bg);
   font-size: 1.1rem;
   line-height: 1.5;
+  min-height: 140px;
+  position: relative;
+  overflow-wrap: break-word;
+}
+
+#solution a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+#solution a:hover,
+#solution a:focus {
+  text-decoration: underline;
+}
+
+#solution-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  max-height: 50px;
+  max-width: 150px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+  border-radius: 4px;
 }
 
 /* Themes */
 
-/* Light Theme */
-body.light {
-  background-color: #fff;
-  color: #222;
+body[data-theme="light"] {
+  --bg: #fff;
+  --fg: #222;
+  --border: #ccc;
+  --box-bg: #f9f9f9;
+  --accent: #0066cc;
+  --solution-bg: #fefefe;
 }
 
-/* Dark Theme */
-body.dark {
-  background-color: #121212;
-  color: #eee;
+body[data-theme="dark"] {
+  --bg: #121212;
+  --fg: #eee;
+  --border: #555;
+  --box-bg: #1f1f1f;
+  --accent: #3399ff;
+  --solution-bg: #242424;
 }
 
-/* High Contrast */
-body.highcontrast {
-  background-color: black;
-  color: yellow;
-}
-
-/* Blue Theme */
-body.blue {
-  background-color: #e0f0ff;
-  color: #003366;
-}
-
-/* Label Emoji */
-.label-emoji {
-  font-size: 1.4rem;
-  user-select: none;
+body[data-theme="blue"] {
+  --bg: #e0f0ff;
+  --fg: #003366;
+  --border: #99c2ff;
+  --box-bg: #cce6ff;
+  --accent: #004a99;
+  --solution-bg: #d9ecff;
 }
