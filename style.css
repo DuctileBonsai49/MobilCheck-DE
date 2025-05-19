@@ -1,41 +1,53 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #e0f0ff, #ffffff);
-  color: #003366;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4faff;
+  color: #003366;
 }
 
 .container {
   max-width: 600px;
-  margin: auto;
-  padding: 30px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   text-align: center;
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.4rem;
   color: #00509e;
-  animation: fadeIn 1.5s ease-in-out;
+  margin-bottom: 5px;
 }
 
-.selectors {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
   margin-bottom: 25px;
 }
 
+.selectors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+label {
+  text-align: right;
+  font-weight: bold;
+}
+
 select {
-  flex: 1;
-  padding: 12px;
+  padding: 10px;
   border: 2px solid #0077cc;
   border-radius: 8px;
   font-size: 1rem;
-  background: #ffffff;
-  color: #003366;
-  transition: all 0.3s ease;
+  background: #fff;
+  transition: border 0.3s;
 }
 
 select:hover {
@@ -47,7 +59,7 @@ select:hover {
 }
 
 .logo {
-  width: 120px;
+  width: 100px;
   height: auto;
   margin: 10px 0;
   transition: transform 0.3s;
@@ -58,16 +70,16 @@ select:hover {
 }
 
 #loesung {
-  margin-top: 20px;
-  background: #f0f8ff;
+  margin-top: 25px;
+  background: #eaf5ff;
   padding: 20px;
   border: 1px solid #b3d9ff;
   border-radius: 10px;
-  font-size: 1.1rem;
-  animation: fadeIn 0.6s ease-in-out;
+  font-size: 1.05rem;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
