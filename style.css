@@ -1,34 +1,33 @@
 :root {
-  --main-blue: #007BFF;
-  --main-dark: #1e1e2f;
-  --text-light: #ffffff;
-  --text-dark: #1e1e1e;
-  --background-light: #f2f2f2;
-  --background-dark: #121212;
+  /* Standard Theme */
+  --main-bg: #f2f2f2;
+  --main-text: #1e1e1e;
+  --main-accent: #007bff;
+  --container-bg: white;
+  --input-bg: white;
+  --input-text: #1e1e1e;
+  --border-color: #007bff;
+  --loesung-bg: #e9f3ff;
+
   --transition-speed: 0.3s;
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--background-light);
-  color: var(--text-dark);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--main-text);
   transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-body.dark {
-  background-color: var(--background-dark);
-  color: var(--text-light);
 }
 
 .topbar {
   display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background-color: var(--main-blue);
-  color: white;
-  align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--main-accent);
+  color: white;
 }
 
 .topbar input[type="text"] {
@@ -36,6 +35,8 @@ body.dark {
   border-radius: 5px;
   border: none;
   width: 250px;
+  background: var(--input-bg);
+  color: var(--input-text);
 }
 
 .toggle-group {
@@ -44,23 +45,29 @@ body.dark {
   align-items: center;
 }
 
+.toggle-group select {
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--input-text);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
 .container {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: white;
+  background: var(--container-bg);
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: background-color var(--transition-speed);
-}
-
-body.dark .container {
-  background: #1e1e2f;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 h1 {
   text-align: center;
-  color: var(--main-blue);
+  color: var(--main-accent);
   margin-bottom: 10px;
 }
 
@@ -79,21 +86,15 @@ select, button {
   padding: 10px;
   font-size: 1rem;
   margin-bottom: 10px;
-  border: 2px solid var(--main-blue);
+  border: 2px solid var(--border-color);
   border-radius: 5px;
-  background: white;
-  color: var(--text-dark);
-  transition: background 0.3s, color 0.3s;
-}
-
-body.dark select,
-body.dark button {
-  background: #333;
-  color: white;
+  background: var(--input-bg);
+  color: var(--input-text);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 button:hover {
-  background: var(--main-blue);
+  background: var(--main-accent);
   color: white;
   cursor: pointer;
 }
@@ -101,16 +102,10 @@ button:hover {
 .loesung-box {
   margin-top: 20px;
   padding: 15px;
-  border-left: 5px solid var(--main-blue);
-  background: #e9f3ff;
+  border-left: 5px solid var(--main-accent);
+  background: var(--loesung-bg);
   border-radius: 5px;
   animation: fadeIn 0.5s ease-in-out;
-}
-
-body.dark .loesung-box {
-  background: #2b2b3d;
-  color: white;
-  border-left-color: #2196f3;
 }
 
 .loesung-box img {
@@ -122,5 +117,47 @@ body.dark .loesung-box {
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------
+   BLUE Theme (blau)
+--------------------- */
+body.theme-blue {
+  --main-bg: #e6f0ff;
+  --main-text: #003366;
+  --main-accent: #0044cc;
+  --container-bg: #ffffff;
+  --input-bg: #cce0ff;
+  --input-text: #003366;
+  --border-color: #0044cc;
+  --loesung-bg: #d9e6ff;
+}
+
+/* --------------------
+   GREEN Theme (grün)
+--------------------- */
+body.theme-green {
+  --main-bg: #e9f6e9;
+  --main-text: #1a4d1a;
+  --main-accent: #2e8b57;
+  --container-bg: #ffffff;
+  --input-bg: #d0f0d0;
+  --input-text: #1a4d1a;
+  --border-color: #2e8b57;
+  --loesung-bg: #c8e6c9;
+}
+
+/* --------------------
+   DARK Theme (dunkel)
+--------------------- */
+body.theme-dark {
+  --main-bg: #121212;
+  --main-text: #e0e0e0;
+  --main-accent: #2196f3;
+  --container-bg: #1e1e2f;
+  --input-bg: #333;
+  --input-text: #e0e0e0;
+  --border-color: #2196f3;
+  --loesung-bg: #2b2b3d;
 }
