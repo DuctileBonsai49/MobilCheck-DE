@@ -1,45 +1,34 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mobilfunkhilfe</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobilfunkhilfe</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body data-theme="light">
-
-<div class="container">
-  <h1>Mobilfunkhilfe</h1>
-  <div class="controls">
-    <label for="language-select">Sprache:</label>
-    <select id="language-select" aria-label="Sprache auswählen">
-      <option value="de" selected>🇩🇪 Deutsch</option>
-      <option value="en">🇬🇧 English</option>
-    </select>
-
-    <label for="provider-select">Anbieter:</label>
-    <select id="provider-select" aria-label="Mobilfunkanbieter auswählen">
-      <option value="" disabled selected>Bitte Anbieter wählen</option>
-    </select>
-
-    <label for="topic-select">Thema:</label>
-    <select id="topic-select" aria-label="Thema auswählen" disabled>
-      <option value="" disabled selected>Bitte Thema wählen</option>
-    </select>
-
-    <label for="theme-select">Theme:</label>
-    <select id="theme-select" aria-label="Theme auswählen">
-      <option value="light" selected>Light</option>
-      <option value="dark">Dark</option>
-      <option value="blue">Blue</option>
-    </select>
+<body>
+  <div class="topbar">
+    <div class="logo">📱 Mobilfunkhilfe</div>
+    <div class="controls">
+      <select id="language-select">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+      </select>
+      <select id="theme-select">
+        <option value="light">🌞 Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
   </div>
 
-  <div id="solution" tabindex="0">
-    <p>Wähle Anbieter und Thema, um eine Lösung zu sehen.</p>
+  <div class="content">
+    <select id="provider-select"></select>
+    <select id="topic-select" disabled></select>
+    <div id="solution"></div>
   </div>
-</div>
 
-<script src="script.js"></script>
+  <!-- Hier das Skript ganz am Ende -->
+  <script src="script.js"></script>
 </body>
 </html>
