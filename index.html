@@ -4,309 +4,42 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mobilfunkhilfe</title>
-<style>
-  :root {
-    --bg-light: #f9f9f9;
-    --text-light: #222;
-    --bg-dark: #121212;
-    --text-dark: #eee;
-    --bg-blue: #e3f2fd;
-    --text-blue: #0d47a1;
-  }
-  body[data-theme="light"] {
-    background: var(--bg-light);
-    color: var(--text-light);
-  }
-  body[data-theme="dark"] {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-  }
-  body[data-theme="blue"] {
-    background: var(--bg-blue);
-    color: var(--text-blue);
-  }
-
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0; padding: 1rem;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  header {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  select {
-    font-size: 1rem;
-    padding: 0.3rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  /* Emoji only for language display */
-  #language-select {
-    width: 70px;
-    text-align-last: center;
-  }
-  #language-select option {
-    font-size: 1.5rem;
-  }
-  /* Dropdown width fixes */
-  #provider-select, #topic-select, #theme-select {
-    min-width: 180px;
-  }
-
-  main {
-    max-width: 700px;
-    margin: auto;
-    background: rgba(255 255 255 / 0.9);
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  }
-  body[data-theme="dark"] main {
-    background: rgba(30 30 30 / 0.9);
-  }
-  body[data-theme="blue"] main {
-    background: rgba(227 242 253 / 0.9);
-  }
-
-  #solution-logo {
-    max-height: 60px;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  #solution-text {
-    font-size: 1.1rem;
-    line-height: 1.5;
-  }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body data-theme="light">
 
-<header>
-  <select id="language-select" aria-label="Sprache wählen">
-    <option value="de">🇩🇪 Deutsch</option>
-    <option value="en">🇬🇧 English</option>
-  </select>
+<div class="container">
+  <h1>Mobilfunkhilfe</h1>
+  <div class="controls">
+    <label for="language-select">Sprache:</label>
+    <select id="language-select" aria-label="Sprache auswählen">
+      <option value="de" selected>🇩🇪 Deutsch</option>
+      <option value="en">🇬🇧 English</option>
+    </select>
 
-  <select id="theme-select" aria-label="Theme wählen">
-    <option value="light">Light</option>
-    <option value="dark">Dark</option>
-    <option value="blue">Blue</option>
-  </select>
-</header>
+    <label for="provider-select">Anbieter:</label>
+    <select id="provider-select" aria-label="Mobilfunkanbieter auswählen">
+      <option value="" disabled selected>Bitte Anbieter wählen</option>
+    </select>
 
-<main>
-  <label for="provider-select">Mobilfunkanbieter:</label><br />
-  <select id="provider-select" aria-label="Mobilfunkanbieter wählen">
-    <option value="" disabled selected>Bitte Anbieter wählen</option>
-  </select>
+    <label for="topic-select">Thema:</label>
+    <select id="topic-select" aria-label="Thema auswählen" disabled>
+      <option value="" disabled selected>Bitte Thema wählen</option>
+    </select>
 
-  <br /><br />
+    <label for="theme-select">Theme:</label>
+    <select id="theme-select" aria-label="Theme auswählen">
+      <option value="light" selected>Light</option>
+      <option value="dark">Dark</option>
+      <option value="blue">Blue</option>
+    </select>
+  </div>
 
-  <label for="topic-select">Thema:</label><br />
-  <select id="topic-select" aria-label="Thema wählen" disabled>
-    <option value="" disabled selected>Bitte Thema wählen</option>
-  </select>
+  <div id="solution" tabindex="0">
+    <p>Wähle Anbieter und Thema, um eine Lösung zu sehen.</p>
+  </div>
+</div>
 
-  <hr style="margin: 1.5rem 0;" />
-
-  <img id="solution-logo" src="" alt="" />
-  <div id="solution-text">Wähle Anbieter und Thema, um Hilfe zu sehen.</div>
-</main>
-
-<script>
-// Datenstruktur mit ausführlichen Texten und Logos
-const data = {
-  "1&1": {
-    "SIM-Aktivierung": {
-      de: {
-        text: `Die SIM-Aktivierung erfolgt normalerweise automatisch.<br>
-               Falls nicht, folge dieser Anleitung: <a href="https://www.1und1.de/hilfe/sim-aktivierung" target="_blank" rel="noopener noreferrer">1&1 SIM-Aktivierung</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/1und1-Logo.svg"
-      },
-      en: {
-        text: `SIM activation usually happens automatically.<br>
-               If it doesn't, follow this guide: <a href="https://www.1und1.de/hilfe/sim-aktivierung" target="_blank" rel="noopener noreferrer">1&1 SIM Activation</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/1und1-Logo.svg"
-      }
-    },
-    "Roaming": {
-      de: {
-        text: `Aktiviere Roaming in den Einstellungen deines Geräts.<br>
-               Prüfe, ob dein Vertrag Roaming unterstützt.<br>
-               Mehr Infos unter <a href="https://www.1und1.de/hilfe/roaming" target="_blank" rel="noopener noreferrer">1&1 Roaming Hilfe</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/1und1-Logo.svg"
-      },
-      en: {
-        text: `Enable roaming in your device settings.<br>
-               Check if your contract supports roaming.<br>
-               More info at <a href="https://www.1und1.de/hilfe/roaming" target="_blank" rel="noopener noreferrer">1&1 Roaming Help</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/1und1-Logo.svg"
-      }
-    }
-  },
-  "Telekom": {
-    "Netzprobleme": {
-      de: {
-        text: `Telekom Netzprobleme lassen sich oft durch Neustart des Geräts lösen.<br>
-               Falls nicht, kontaktiere den <a href="https://www.telekom.de/kontakt" target="_blank" rel="noopener noreferrer">Telekom Kundenservice</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
-      },
-      en: {
-        text: `Telekom network issues can often be resolved by restarting your device.<br>
-               If not, contact <a href="https://www.telekom.de/kontakt" target="_blank" rel="noopener noreferrer">Telekom customer service</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
-      }
-    },
-    "SIM-Aktivierung": {
-      de: {
-        text: `SIM-Aktivierung bei Telekom erfolgt meist automatisch.<br>
-               Falls nicht, findest du Hilfe im <a href="https://www.telekom.de/hilfe/mobilfunk/sim-aktivierung" target="_blank" rel="noopener noreferrer">Telekom Hilfe-Bereich</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
-      },
-      en: {
-        text: `SIM activation usually happens automatically at Telekom.<br>
-               If not, find help in the <a href="https://www.telekom.de/hilfe/mobilfunk/sim-aktivierung" target="_blank" rel="noopener noreferrer">Telekom help section</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Deutsche_Telekom_2013_logo.svg"
-      }
-    }
-  },
-  "Vodafone": {
-    "Roaming": {
-      de: {
-        text: `Vodafone Roaming muss in den Einstellungen aktiviert werden.<br>
-               Prüfe deinen Vertrag auf Roaming-Optionen.<br>
-               Hilfe findest du unter <a href="https://www.vodafone.de/hilfe/roaming" target="_blank" rel="noopener noreferrer">Vodafone Roaming</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
-      },
-      en: {
-        text: `Vodafone roaming needs to be enabled in settings.<br>
-               Check your contract for roaming options.<br>
-               Find help at <a href="https://www.vodafone.de/hilfe/roaming" target="_blank" rel="noopener noreferrer">Vodafone roaming</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
-      }
-    },
-    "Netzprobleme": {
-      de: {
-        text: `Bei Vodafone Netzproblemen hilft oft ein Neustart.<br>
-               Weitere Hilfe gibt es beim <a href="https://www.vodafone.de/hilfe/kontakt" target="_blank" rel="noopener noreferrer">Vodafone Kundenservice</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
-      },
-      en: {
-        text: `Restart often helps with Vodafone network issues.<br>
-               More help at <a href="https://www.vodafone.de/hilfe/kontakt" target="_blank" rel="noopener noreferrer">Vodafone customer service</a>.`,
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Vodafone_icon.svg"
-      }
-    }
-  }
-};
-
-// Globals für State
-let currentLang = 'de';
-let currentProvider = '';
-let currentTopic = '';
-let currentTheme = 'light';
-
-// DOM Elemente
-const langSelect = document.getElementById('language-select');
-const providerSelect = document.getElementById('provider-select');
-const topicSelect = document.getElementById('topic-select');
-const solutionText = document.getElementById('solution-text');
-const solutionLogo = document.getElementById('solution-logo');
-const themeSelect = document.getElementById('theme-select');
-
-// Init Funktionen
-function populateProviders() {
-  providerSelect.innerHTML = `<option value="" disabled selected>Bitte Anbieter wählen</option>`;
-  Object.keys(data).forEach(provider => {
-    providerSelect.innerHTML += `<option value="${provider}">${provider}</option>`;
-  });
-}
-
-function populateTopics(provider) {
-  topicSelect.innerHTML = `<option value="" disabled selected>Bitte Thema wählen</option>`;
-  if (!provider || !data[provider]) {
-    topicSelect.disabled = true;
-    return;
-  }
-  Object.keys(data[provider]).forEach(topic => {
-    topicSelect.innerHTML += `<option value="${topic}">${topic}</option>`;
-  });
-  topicSelect.disabled = false;
-}
-
-function showSolution() {
-  if (!currentProvider || !currentTopic) {
-    solutionText.innerHTML = 'Wähle Anbieter und Thema, um Hilfe zu sehen.';
-    solutionLogo.src = '';
-    solutionLogo.alt = '';
-    return;
-  }
-  const sol = data[currentProvider][currentTopic][currentLang];
-  solutionText.innerHTML = sol.text;
-  solutionLogo.src = sol.logo;
-  solutionLogo.alt = `${currentProvider} Logo`;
-}
-
-function setLanguage(lang) {
-  currentLang = lang;
-  // Für Anzeige nur Emoji im Select, Text in Option bleibt
-  // Lösungstexte aktualisieren
-  showSolution();
-}
-
-function setTheme(theme) {
-  currentTheme = theme;
-  document.body.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
-}
-
-function loadSettings() {
-  const savedLang = localStorage.getItem('lang');
-  const savedTheme = localStorage.getItem('theme');
-  if (savedLang && (savedLang === 'de' || savedLang === 'en')) {
-    currentLang = savedLang;
-    langSelect.value = savedLang;
-  }
-  if (savedTheme) {
-    currentTheme = savedTheme;
-    themeSelect.value = savedTheme;
-    document.body.setAttribute('data-theme', savedTheme);
-  }
-}
-
-function saveLanguage(lang) {
-  localStorage.setItem('lang', lang);
-}
-
-// Event Listener
-langSelect.addEventListener('change', e => {
-  setLanguage(e.target.value);
-  saveLanguage(e.target.value);
-});
-themeSelect.addEventListener('change', e => {
-  setTheme(e.target.value);
-});
-providerSelect.addEventListener('change', e => {
-  currentProvider = e.target.value;
-  currentTopic = '';
-  populateTopics(currentProvider);
-  showSolution();
-});
-topicSelect.addEventListener('change', e => {
-  currentTopic = e.target.value;
-  showSolution();
-});
-
-// Initial Setup
-loadSettings();
-populateProviders();
-populateTopics(currentProvider);
-showSolution();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
