@@ -1,13 +1,13 @@
 const data = {
-  Telekom: {
+  "Telekom": {
     "Kein Empfang im Ausland": {
       de: {
-        text: "Bitte stelle sicher, dass Roaming in den Einstellungen aktiviert ist. Weitere Infos findest du auf der Telekom-Website.",
+        text: "Aktiviere Datenroaming im Handy und im Kundencenter.",
         link: "https://www.telekom.de/hilfe/roaming",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Deutsche_Telekom_2013_logo.svg"
       },
       en: {
-        text: "Please ensure that roaming is enabled in your settings. For more info, visit Telekom's website.",
+        text: "Enable data roaming in your device and customer portal.",
         link: "https://www.telekom.de/hilfe/roaming",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Deutsche_Telekom_2013_logo.svg"
       }
@@ -16,12 +16,12 @@ const data = {
   "1&1": {
     "Kein Empfang im Ausland": {
       de: {
-        text: "Roaming muss in deinem Kundenportal freigeschaltet sein. Gehe dazu in den Bereich 'Meine Karte'.",
+        text: "Roaming im Kundenbereich aktivieren – unter 'Meine Karte'.",
         link: "https://www.1und1.de/roaming",
         logo: "https://upload.wikimedia.org/wikipedia/commons/f/f4/1%261_Logo.svg"
       },
       en: {
-        text: "Roaming must be enabled via your customer account. Visit the 'My SIM card' section.",
+        text: "Enable roaming in customer portal under 'My SIM card'.",
         link: "https://www.1und1.de/roaming",
         logo: "https://upload.wikimedia.org/wikipedia/commons/f/f4/1%261_Logo.svg"
       }
@@ -29,19 +29,18 @@ const data = {
   }
 };
 
-const languageSelect = document.getElementById("language-select");
 const providerSelect = document.getElementById("provider-select");
 const topicSelect = document.getElementById("topic-select");
-const solutionDiv = document.getElementById("solution");
+const languageSelect = document.getElementById("language-select");
 const themeSelect = document.getElementById("theme-select");
+const solutionBox = document.getElementById("solution");
 
-// Textübersetzungen
 const texts = {
   de: {
     chooseProvider: "Anbieter wählen",
     chooseTopic: "Thema wählen",
     noSolution: "Keine Lösung für diese Kombination vorhanden.",
-    chooseBoth: "Bitte Anbieter und Thema auswählen."
+    chooseBoth: "Bitte wähle einen Anbieter und ein Thema aus."
   },
   en: {
     chooseProvider: "Select provider",
@@ -51,24 +50,26 @@ const texts = {
   }
 };
 
-function getText(key) {
-  const lang = languageSelect.value || "de";
-  return texts[lang][key] || "";
+function getLang() {
+  return languageSelect.value || "de";
 }
 
 function fillProviders() {
-  providerSelect.innerHTML = `<option value="">${getText('chooseProvider')}</option>`;
-  Object.keys(data).forEach(provider => {
+  const lang = getLang();
+  providerSelect.innerHTML = `<option value="">${texts[lang].chooseProvider}</option>`;
+  Object.keys(data).forEach(p => {
     const opt = document.createElement("option");
-    opt.value = provider;
-    opt.textContent = provider;
+    opt.value = p;
+    opt.textContent = p;
     providerSelect.appendChild(opt);
   });
 }
 
 function fillTopics() {
-  topicSelect.innerHTML = `<option value="">${getText('chooseTopic')}</option>`;
+  const lang = getLang();
+  topicSelect.innerHTML = `<option value="">${texts[lang].chooseTopic}</option>`;
   topicSelect.disabled = true;
+
   const provider = providerSelect.value;
   if (!provider || !data[provider]) return;
 
@@ -78,38 +79,39 @@ function fillTopics() {
     opt.textContent = topic;
     topicSelect.appendChild(opt);
   });
+
   topicSelect.disabled = false;
 }
 
 function showSolution() {
   const provider = providerSelect.value;
   const topic = topicSelect.value;
-  const lang = languageSelect.value;
+  const lang = getLang();
 
   if (!provider || !topic) {
-    solutionDiv.innerHTML = `<p>${getText("chooseBoth")}</p>`;
+    solutionBox.innerHTML = `<p>${texts[lang].chooseBoth}</p>`;
     return;
   }
 
-  const solution = data[provider]?.[topic]?.[lang];
-  if (!solution) {
-    solutionDiv.innerHTML = `<p>${getText("noSolution")}</p>`;
+  const entry = data[provider]?.[topic]?.[lang];
+  if (!entry) {
+    solutionBox.innerHTML = `<p>${texts[lang].noSolution}</p>`;
     return;
   }
 
-  solutionDiv.innerHTML = `
-    <p>${solution.text}</p>
-    <p><a href="${solution.link}" target="_blank" rel="noopener noreferrer">${solution.link}</a></p>
-    <img src="${solution.logo}" alt="${provider} Logo" />
+  solutionBox.innerHTML = `
+    <p>${entry.text}</p>
+    <p><a href="${entry.link}" target="_blank">${entry.link}</a></p>
+    <img src="${entry.logo}" alt="${provider} Logo">
   `;
 }
 
-function applyTheme(theme) {
+function setTheme(theme) {
   document.body.setAttribute("data-theme", theme);
   localStorage.setItem("mobilcheck-theme", theme);
 }
 
-function applyLanguage(lang) {
+function setLanguage(lang) {
   localStorage.setItem("mobilcheck-lang", lang);
   fillProviders();
   fillTopics();
@@ -118,22 +120,23 @@ function applyLanguage(lang) {
 
 function loadSettings() {
   const savedLang = localStorage.getItem("mobilcheck-lang") || "de";
-  languageSelect.value = savedLang;
+  const savedTheme = localStorage.getItem("mobilcheck-theme") || "blue";
 
-  const savedTheme = localStorage.getItem("mobilcheck-theme") || "light";
+  languageSelect.value = savedLang;
   themeSelect.value = savedTheme;
-  applyTheme(savedTheme);
-  applyLanguage(savedLang);
+
+  setTheme(savedTheme);
+  setLanguage(savedLang);
 }
 
 // Events
-languageSelect.addEventListener("change", () => applyLanguage(languageSelect.value));
+languageSelect.addEventListener("change", () => setLanguage(languageSelect.value));
+themeSelect.addEventListener("change", () => setTheme(themeSelect.value));
 providerSelect.addEventListener("change", () => {
   fillTopics();
   showSolution();
 });
 topicSelect.addEventListener("change", showSolution);
-themeSelect.addEventListener("change", () => applyTheme(themeSelect.value));
 
 // Init
 loadSettings();
