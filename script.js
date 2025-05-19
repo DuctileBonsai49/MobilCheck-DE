@@ -1,142 +1,70 @@
-const data = {
-  "Telekom": {
-    "Kein Empfang im Ausland": {
-      de: {
-        text: "Aktiviere Datenroaming im Handy und im Kundencenter.",
-        link: "https://www.telekom.de/hilfe/roaming",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Deutsche_Telekom_2013_logo.svg"
-      },
-      en: {
-        text: "Enable data roaming in your device and customer portal.",
-        link: "https://www.telekom.de/hilfe/roaming",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Deutsche_Telekom_2013_logo.svg"
-      }
-    }
+const loesungDiv = document.getElementById("loesung");
+const anbieterSelect = document.getElementById("anbieter");
+const themaSelect = document.getElementById("thema");
+const logoContainer = document.getElementById("logoContainer");
+
+const logos = {
+  telekom: "https://upload.wikimedia.org/wikipedia/commons/8/89/Telekom_Logo_2022.svg",
+  vodafone: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Vodafone_2017_logo.svg",
+  o2: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Telef%C3%B3nica_O2_Deutschland_2019_logo.svg",
+  simon: "https://upload.wikimedia.org/wikipedia/commons/0/0a/SIMon_Mobile_Logo.svg",
+  "1und1": "https://upload.wikimedia.org/wikipedia/commons/d/d3/1%261_Logo_2021.svg"
+};
+
+const loesungen = {
+  telekom: {
+    keinEmpfang: "Starte dein Gerät neu und prüfe, ob Netzprobleme in deiner Region vorliegen.",
+    roaming: "Stelle sicher, dass Roaming in den Einstellungen aktiviert ist.",
+    smsProbleme: "Überprüfe die SMS-Zentrale unter den Netzwerkeinstellungen.",
+    internetLangsam: "Deaktiviere kurzzeitig mobile Daten oder wechsle den Standort."
   },
-  "1&1": {
-    "Kein Empfang im Ausland": {
-      de: {
-        text: "Roaming im Kundenbereich aktivieren – unter 'Meine Karte'.",
-        link: "https://www.1und1.de/roaming",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/f/f4/1%261_Logo.svg"
-      },
-      en: {
-        text: "Enable roaming in customer portal under 'My SIM card'.",
-        link: "https://www.1und1.de/roaming",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/f/f4/1%261_Logo.svg"
-      }
-    }
+  vodafone: {
+    keinEmpfang: "Manchmal hilft ein kurzer Flugmodus. Prüfe auch Störungen auf der Website.",
+    roaming: "Roaming muss sowohl im Gerät als auch im Kundenkonto aktiviert sein.",
+    smsProbleme: "Setze die Netzwerkeinstellungen zurück und teste erneut.",
+    internetLangsam: "Führe einen Speedtest durch – ggf. hilft ein Netzwechsel (2G/4G/5G)."
+  },
+  o2: {
+    keinEmpfang: "In Grenzregionen kann manuelle Netzwahl helfen.",
+    roaming: "Achte auf korrekte APN-Einstellungen für Auslandsverbindungen.",
+    smsProbleme: "Ein Neustart und Netzwechsel (Auto auf manuell) kann helfen.",
+    internetLangsam: "Zu Stoßzeiten kann das Netz überlastet sein. Standort wechseln."
+  },
+  simon: {
+    keinEmpfang: "SIMon nutzt das Vodafone-Netz. Prüfe, ob dieses verfügbar ist.",
+    roaming: "Roaming ist oft standardmäßig aus. Aktiviere es in den Einstellungen.",
+    smsProbleme: "Prüfe die SIMon-Hilfe zur SMS-Konfiguration oder wende dich an den Support.",
+    internetLangsam: "Tarifbedingt kann die Geschwindigkeit begrenzt sein – siehe Tarifdetails."
+  },
+  "1und1": {
+    keinEmpfang: "1&1 verwendet teils o2 oder Vodafone – prüfe, welches Netz du nutzt.",
+    roaming: "Aktiviere Roaming im Handy & Kundencenter. Bei Problemen Netz manuell wählen.",
+    smsProbleme: "Vergewissere dich, dass SMS-Zentrale korrekt eingestellt ist: +491720310000 (Vodafone) oder +491760000443 (o2).",
+    internetLangsam: "1&1 kann unterschiedliche Netze und Tarife nutzen – wechsle z. B. von 5G zu 4G."
   }
 };
 
-const providerSelect = document.getElementById("provider-select");
-const topicSelect = document.getElementById("topic-select");
-const languageSelect = document.getElementById("language-select");
-const themeSelect = document.getElementById("theme-select");
-const solutionBox = document.getElementById("solution");
+function zeigeLoesung() {
+  const anbieter = anbieterSelect.value;
+  const thema = themaSelect.value;
 
-const texts = {
-  de: {
-    chooseProvider: "Anbieter wählen",
-    chooseTopic: "Thema wählen",
-    noSolution: "Keine Lösung für diese Kombination vorhanden.",
-    chooseBoth: "Bitte wähle einen Anbieter und ein Thema aus."
-  },
-  en: {
-    chooseProvider: "Select provider",
-    chooseTopic: "Select topic",
-    noSolution: "No solution found for this combination.",
-    chooseBoth: "Please select a provider and topic."
-  }
-};
+  logoContainer.innerHTML = "";
+  loesungDiv.innerHTML = "";
 
-function getLang() {
-  return languageSelect.value || "de";
-}
-
-function fillProviders() {
-  const lang = getLang();
-  providerSelect.innerHTML = `<option value="">${texts[lang].chooseProvider}</option>`;
-  Object.keys(data).forEach(p => {
-    const opt = document.createElement("option");
-    opt.value = p;
-    opt.textContent = p;
-    providerSelect.appendChild(opt);
-  });
-}
-
-function fillTopics() {
-  const lang = getLang();
-  topicSelect.innerHTML = `<option value="">${texts[lang].chooseTopic}</option>`;
-  topicSelect.disabled = true;
-
-  const provider = providerSelect.value;
-  if (!provider || !data[provider]) return;
-
-  Object.keys(data[provider]).forEach(topic => {
-    const opt = document.createElement("option");
-    opt.value = topic;
-    opt.textContent = topic;
-    topicSelect.appendChild(opt);
-  });
-
-  topicSelect.disabled = false;
-}
-
-function showSolution() {
-  const provider = providerSelect.value;
-  const topic = topicSelect.value;
-  const lang = getLang();
-
-  if (!provider || !topic) {
-    solutionBox.innerHTML = `<p>${texts[lang].chooseBoth}</p>`;
-    return;
+  if (anbieter && logos[anbieter]) {
+    const img = document.createElement("img");
+    img.src = logos[anbieter];
+    img.alt = anbieter + " Logo";
+    img.className = "logo";
+    logoContainer.appendChild(img);
   }
 
-  const entry = data[provider]?.[topic]?.[lang];
-  if (!entry) {
-    solutionBox.innerHTML = `<p>${texts[lang].noSolution}</p>`;
-    return;
+  if (anbieter && thema && loesungen[anbieter] && loesungen[anbieter][thema]) {
+    loesungDiv.innerHTML = `<p>${loesungen[anbieter][thema]}</p>`;
+  } else if (anbieter && thema) {
+    loesungDiv.innerHTML = `<p>Für diese Kombination liegt kein Lösungsvorschlag vor.</p>`;
   }
-
-  solutionBox.innerHTML = `
-    <p>${entry.text}</p>
-    <p><a href="${entry.link}" target="_blank">${entry.link}</a></p>
-    <img src="${entry.logo}" alt="${provider} Logo">
-  `;
 }
 
-function setTheme(theme) {
-  document.body.setAttribute("data-theme", theme);
-  localStorage.setItem("mobilcheck-theme", theme);
-}
-
-function setLanguage(lang) {
-  localStorage.setItem("mobilcheck-lang", lang);
-  fillProviders();
-  fillTopics();
-  showSolution();
-}
-
-function loadSettings() {
-  const savedLang = localStorage.getItem("mobilcheck-lang") || "de";
-  const savedTheme = localStorage.getItem("mobilcheck-theme") || "blue";
-
-  languageSelect.value = savedLang;
-  themeSelect.value = savedTheme;
-
-  setTheme(savedTheme);
-  setLanguage(savedLang);
-}
-
-// Events
-languageSelect.addEventListener("change", () => setLanguage(languageSelect.value));
-themeSelect.addEventListener("change", () => setTheme(themeSelect.value));
-providerSelect.addEventListener("change", () => {
-  fillTopics();
-  showSolution();
-});
-topicSelect.addEventListener("change", showSolution);
-
-// Init
-loadSettings();
+anbieterSelect.addEventListener("change", zeigeLoesung);
+themaSelect.addEventListener("change", zeigeLoesung);
