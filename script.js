@@ -1,70 +1,69 @@
-const loesungDiv = document.getElementById("loesung");
-const anbieterSelect = document.getElementById("anbieter");
-const themaSelect = document.getElementById("thema");
-const logoContainer = document.getElementById("logoContainer");
-
-const logos = {
-  telekom: "https://upload.wikimedia.org/wikipedia/commons/8/89/Telekom_Logo_2022.svg",
-  vodafone: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Vodafone_2017_logo.svg",
-  o2: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Telef%C3%B3nica_O2_Deutschland_2019_logo.svg",
-  simon: "https://upload.wikimedia.org/wikipedia/commons/0/0a/SIMon_Mobile_Logo.svg",
-  "1und1": "https://upload.wikimedia.org/wikipedia/commons/d/d3/1%261_Logo_2021.svg"
-};
-
 const loesungen = {
-  telekom: {
-    keinEmpfang: "Starte dein Gerät neu und prüfe, ob Netzprobleme in deiner Region vorliegen.",
-    roaming: "Stelle sicher, dass Roaming in den Einstellungen aktiviert ist.",
-    smsProbleme: "Überprüfe die SMS-Zentrale unter den Netzwerkeinstellungen.",
-    internetLangsam: "Deaktiviere kurzzeitig mobile Daten oder wechsle den Standort."
+  Telekom: {
+    keinEmpfang: "Stelle sicher, dass du dich in einem versorgten Gebiet befindest. Starte dein Gerät neu und prüfe die Netzwerkeinstellungen.",
+    roaming: "Aktiviere Datenroaming in den Einstellungen. Telekom-Kunden haben EU-weites Roaming inklusive. Bei Problemen *+49 1806 330100* kontaktieren.",
+    rechnung: "Logge dich in dein Telekom-Kundencenter ein, um deine Rechnung einzusehen. Bei Unklarheiten hilft der Support.",
+    netzprobleme: "Prüfe die Netzabdeckung unter telekom.de/netzabdeckung. Störungen kannst du dort direkt melden."
   },
-  vodafone: {
-    keinEmpfang: "Manchmal hilft ein kurzer Flugmodus. Prüfe auch Störungen auf der Website.",
-    roaming: "Roaming muss sowohl im Gerät als auch im Kundenkonto aktiviert sein.",
-    smsProbleme: "Setze die Netzwerkeinstellungen zurück und teste erneut.",
-    internetLangsam: "Führe einen Speedtest durch – ggf. hilft ein Netzwechsel (2G/4G/5G)."
+  Vodafone: {
+    keinEmpfang: "Schalte dein Handy aus und wieder ein. Kontrolliere in der MeinVodafone-App deinen Status oder SIM-Kartensitz.",
+    roaming: "Roaming muss in den Einstellungen aktiv sein. Bei Auslandskosten → Vodafone-Hotline kontaktieren.",
+    rechnung: "Alle Rechnungen findest du in der MeinVodafone-App oder auf vodafone.de im Kundenbereich.",
+    netzprobleme: "Nutze die Netzkarte unter vodafone.de/netz. Störungen kannst du dort melden."
   },
-  o2: {
-    keinEmpfang: "In Grenzregionen kann manuelle Netzwahl helfen.",
-    roaming: "Achte auf korrekte APN-Einstellungen für Auslandsverbindungen.",
-    smsProbleme: "Ein Neustart und Netzwechsel (Auto auf manuell) kann helfen.",
-    internetLangsam: "Zu Stoßzeiten kann das Netz überlastet sein. Standort wechseln."
-  },
-  simon: {
-    keinEmpfang: "SIMon nutzt das Vodafone-Netz. Prüfe, ob dieses verfügbar ist.",
-    roaming: "Roaming ist oft standardmäßig aus. Aktiviere es in den Einstellungen.",
-    smsProbleme: "Prüfe die SIMon-Hilfe zur SMS-Konfiguration oder wende dich an den Support.",
-    internetLangsam: "Tarifbedingt kann die Geschwindigkeit begrenzt sein – siehe Tarifdetails."
+  O2: {
+    keinEmpfang: "SIM-Karte prüfen, Standort wechseln, ggf. Netz manuell auf O2 stellen.",
+    roaming: "In Mein O2 Roaming aktivieren. EU-Roaming ist standardmäßig dabei.",
+    rechnung: "Alle Rechnungen sind über die Mein O2 App oder im Online-Portal abrufbar.",
+    netzprobleme: "Netzabdeckung prüfen auf o2online.de/service/netz. Störung melden möglich."
   },
   "1und1": {
-    keinEmpfang: "1&1 verwendet teils o2 oder Vodafone – prüfe, welches Netz du nutzt.",
-    roaming: "Aktiviere Roaming im Handy & Kundencenter. Bei Problemen Netz manuell wählen.",
-    smsProbleme: "Vergewissere dich, dass SMS-Zentrale korrekt eingestellt ist: +491720310000 (Vodafone) oder +491760000443 (o2).",
-    internetLangsam: "1&1 kann unterschiedliche Netze und Tarife nutzen – wechsle z. B. von 5G zu 4G."
+    keinEmpfang: "Stelle sicher, dass dein Handy im 1&1-Netz eingebucht ist. SIM prüfen & Netzsuche manuell starten.",
+    roaming: "Roaming muss in der 1&1 Control-Center App aktiviert sein. Achte auf manuelle Netzwahl im Ausland.",
+    rechnung: "Deine Rechnungen findest du im Control-Center unter 'Meine Daten'.",
+    netzprobleme: "Unter status.1und1.de kannst du Netzstörungen prüfen oder melden."
+  },
+  simonmobile: {
+    keinEmpfang: "Simon mobile nutzt das Vodafone-Netz. Stelle sicher, dass deine SIM korrekt eingelegt ist. Manuelle Netzsuche: Vodafone wählen.",
+    roaming: "Datenroaming muss aktiv sein. Simon mobile unterstützt EU-Roaming. Bei Problemen Support kontaktieren.",
+    rechnung: "Alle Rechnungen findest du im Kundenbereich unter simonmobile.de.",
+    netzprobleme: "Nutze die Vodafone Netzkarte zur Prüfung. Simon mobile ist davon abhängig."
   }
+};
+
+const logos = {
+  Telekom: "https://upload.wikimedia.org/wikipedia/commons/8/89/Deutsche_Telekom_AG_Logo_2013.svg",
+  Vodafone: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Vodafone_icon.svg",
+  O2: "https://upload.wikimedia.org/wikipedia/commons/6/6f/O2_Logo.svg",
+  "1und1": "https://upload.wikimedia.org/wikipedia/commons/2/2d/1%261_Logo.svg",
+  simonmobile: "https://simonmobile.de/assets/images/logo.svg"
 };
 
 function zeigeLoesung() {
-  const anbieter = anbieterSelect.value;
-  const thema = themaSelect.value;
+  const anbieter = document.getElementById("anbieter").value;
+  const thema = document.getElementById("thema").value;
+  const loesungContainer = document.getElementById("loesung");
+  const logoContainer = document.getElementById("logoContainer");
 
+  loesungContainer.innerHTML = "";
   logoContainer.innerHTML = "";
-  loesungDiv.innerHTML = "";
 
-  if (anbieter && logos[anbieter]) {
-    const img = document.createElement("img");
-    img.src = logos[anbieter];
-    img.alt = anbieter + " Logo";
-    img.className = "logo";
-    logoContainer.appendChild(img);
-  }
+  if (anbieter && thema) {
+    const text = loesungen[anbieter]?.[thema];
+    const logoURL = logos[anbieter];
 
-  if (anbieter && thema && loesungen[anbieter] && loesungen[anbieter][thema]) {
-    loesungDiv.innerHTML = `<p>${loesungen[anbieter][thema]}</p>`;
-  } else if (anbieter && thema) {
-    loesungDiv.innerHTML = `<p>Für diese Kombination liegt kein Lösungsvorschlag vor.</p>`;
+    if (text) {
+      loesungContainer.textContent = text;
+
+      if (logoURL) {
+        const img = document.createElement("img");
+        img.src = logoURL;
+        img.alt = anbieter + " Logo";
+        img.className = "logo";
+        logoContainer.appendChild(img);
+      }
+    } else {
+      loesungContainer.textContent = "Für diese Kombination liegt kein Lösungsvorschlag vor.";
+    }
   }
 }
-
-anbieterSelect.addEventListener("change", zeigeLoesung);
-themaSelect.addEventListener("change", zeigeLoesung);
