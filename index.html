@@ -2,20 +2,21 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mobilfunkhilfe</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="topbar">
+    <span><strong>Mobilfunkhilfe</strong></span>
+    <input type="text" id="searchInput" placeholder="Problem suchen..." />
     <div class="toggle-group">
-      <button id="toggleTheme">🌙 Dark Mode</button>
       <select id="languageSwitch">
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="en">🇬🇧 English</option>
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
       </select>
+      <button id="toggleTheme">🌙</button>
     </div>
-    <input type="text" id="searchInput" placeholder="🔍 Problem suchen…" />
   </div>
 
   <div class="container">
@@ -25,8 +26,7 @@
     <div class="form-group">
       <label for="anbieter" id="labelProvider">Anbieter:</label>
       <select id="anbieter">
-        <option value="">-- Bitte wählen --</option>
-        <option value="SIMON">SIMON Mobile</option>
+        <option value="SIMON">SIMon mobile</option>
         <option value="TELEKOM">Telekom</option>
         <option value="VODAFONE">Vodafone</option>
         <option value="O2">O2</option>
@@ -37,16 +37,14 @@
     <div class="form-group">
       <label for="thema" id="labelTopic">Thema:</label>
       <select id="thema">
-        <option value="">-- Bitte wählen --</option>
         <option value="Roaming">Roaming</option>
         <option value="Netzprobleme">Netzprobleme</option>
-        <option value="SIM-Aktivierung">SIM-Aktivierung</option>
         <option value="Vertragsdaten">Vertragsdaten</option>
+        <option value="SIM-Aktivierung">SIM-Aktivierung</option>
       </select>
     </div>
 
     <button id="checkBtn">Lösungen anzeigen</button>
-
     <div id="loesung" class="loesung-box"></div>
   </div>
 
