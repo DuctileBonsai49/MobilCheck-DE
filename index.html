@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>MobilCheck</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
     <div class="title">MobilCheck</div>
-    <div class="controls">
+    <div class="settings">
       <label for="language-select">Sprache:</label>
       <select id="language-select">
         <option value="de">Deutsch</option>
         <option value="en">English</option>
       </select>
 
-      <label for="theme-select">Theme:</label>
+      <label for="theme-select">Design:</label>
       <select id="theme-select">
         <option value="light">Hell</option>
         <option value="dark">Dunkel</option>
@@ -26,14 +25,14 @@
   </header>
 
   <main>
-    <section class="selectors">
+    <div class="selectors">
       <select id="provider-select"></select>
       <select id="topic-select" disabled></select>
-    </section>
+    </div>
 
-    <section id="solution" class="solution-box">
-      <p>Bitte Anbieter und Thema auswählen.</p>
-    </section>
+    <div id="solution" class="solution-box">
+      <p>Bitte wähle einen Anbieter und ein Thema aus.</p>
+    </div>
   </main>
 
   <script src="script.js"></script>
