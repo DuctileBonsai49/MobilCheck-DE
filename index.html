@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MobilCheck</title>
+  <title>MobilCheck – Lösungshilfe</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>MobilCheck</h1>
-    <p class="subtitle">Finde schnell Hilfe zu Mobilfunk-Problemen</p>
+    <p class="subtitle">Wähle Anbieter & Thema für eine passende Lösung</p>
 
     <div class="selectors">
       <label for="anbieter">Anbieter:</label>
-      <select id="anbieter">
+      <select id="anbieter" onchange="zeigeLoesung()">
         <option value="">Bitte wählen</option>
-        <option value="telekom">Telekom</option>
-        <option value="vodafone">Vodafone</option>
-        <option value="o2">O2</option>
+        <option value="Telekom">Telekom</option>
+        <option value="Vodafone">Vodafone</option>
+        <option value="O2">O2</option>
         <option value="1und1">1&1</option>
-        <option value="simon">SIMon mobile</option>
+        <option value="simonmobile">Simon mobile</option>
       </select>
 
       <label for="thema">Thema:</label>
-      <select id="thema">
+      <select id="thema" onchange="zeigeLoesung()">
         <option value="">Bitte wählen</option>
         <option value="keinEmpfang">Kein Empfang</option>
-        <option value="roaming">Roaming</option>
-        <option value="smsProbleme">SMS-Probleme</option>
-        <option value="internetLangsam">Internet langsam</option>
+        <option value="roaming">Roaming funktioniert nicht</option>
+        <option value="rechnung">Fragen zur Rechnung</option>
+        <option value="netzprobleme">Netzprobleme</option>
       </select>
     </div>
 
