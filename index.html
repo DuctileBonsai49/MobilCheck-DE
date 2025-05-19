@@ -1,34 +1,41 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mobilfunkhilfe</title>
+  <title>MobilCheck</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div class="logo">📱 Mobilfunkhilfe</div>
+  <header class="topbar">
+    <div class="title">MobilCheck</div>
     <div class="controls">
+      <label for="language-select">Sprache:</label>
       <select id="language-select">
         <option value="de">Deutsch</option>
         <option value="en">English</option>
       </select>
+
+      <label for="theme-select">Theme:</label>
       <select id="theme-select">
-        <option value="light">🌞 Light</option>
-        <option value="dark">🌙 Dark</option>
+        <option value="light">Hell</option>
+        <option value="dark">Dunkel</option>
+        <option value="blue">Blau</option>
       </select>
     </div>
-  </div>
+  </header>
 
-  <div class="content">
-    <select id="provider-select"></select>
-    <select id="topic-select" disabled></select>
-    <div id="solution"></div>
-  </div>
+  <main>
+    <section class="selectors">
+      <select id="provider-select"></select>
+      <select id="topic-select" disabled></select>
+    </section>
 
-  <!-- Hier das Skript ganz am Ende -->
+    <section id="solution" class="solution-box">
+      <p>Bitte Anbieter und Thema auswählen.</p>
+    </section>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
