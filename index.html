@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mobilfunkhilfe</title>
+  <title>MobilCheck</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="topbar">
-    <span><strong>Mobilfunkhilfe</strong></span>
+    <span><strong>MobilCheck</strong></span>
     <input type="text" id="searchInput" placeholder="Problem suchen..." />
     <div class="toggle-group">
-      <select id="languageSwitch">
-        <option value="de">Deutsch</option>
-        <option value="en">English</option>
-      </select>
+  <span id="languageEmoji">🇩🇪</span>
+  <select id="languageSwitch">
+    <option value="de">Deutsch</option>
+    <option value="en">English</option>
+  </select>
+  <button id="toggleTheme">🌙</button>
+</div>
       <button id="toggleTheme">🌙</button>
     </div>
   </div>
