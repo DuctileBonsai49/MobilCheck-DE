@@ -86,7 +86,7 @@ select, button {
   transition: background 0.3s, color 0.3s;
 }
 
-body.dark select, 
+body.dark select,
 body.dark button {
   background: #333;
   color: white;
